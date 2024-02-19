@@ -2,9 +2,10 @@
 
 import s from './page.module.scss'
 import cn from 'classnames';
-import { apiQuery, DraftMode } from 'next-dato-utils';
+import { apiQuery, DraftMode, Block } from 'next-dato-utils';
 import { StartDocument } from '@graphql';
 import { notFound } from 'next/navigation';
+import * as BlockComponets from '@components/content/blocks';
 
 export default async function Start() {
 
@@ -18,7 +19,9 @@ export default async function Start() {
   return (
     <>
       <article className={cn(s.start)}>
-        {start?.title}
+        {start?.content?.map((block, idx) =>
+          <Block key={idx} components={BlockComponets} data={block} />
+        )}
       </article>
       <DraftMode url={draftUrl} tag={start?.id} />
     </>

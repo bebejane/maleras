@@ -2,7 +2,16 @@ query Start($siteId: String) {
 	start(filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }) {
 		id
 		title
-		content
+		content {
+			__typename
+			... on FullscreenMediaBlockRecord {
+				title
+				text
+				media {
+					...MediaFragment
+				}
+			}
+		}
 		siteSelector {
 			siteId
 		}

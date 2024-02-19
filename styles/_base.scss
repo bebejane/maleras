@@ -3,21 +3,25 @@
 	--white: #fdf3e9;
 	--red: #bf0000;
 
-	--outer-margin: 2.5rem;
+	--outer-margin: 0;
 	--space: 2rem;
 	--space-small: 1rem;
 	--gutter: 1.5rem;
-	--navbar-height: calc(3rem + var(--navbar-offset));
+	--navbar-height: 80px;
 	--background: var(--white);
 	--foreground: var(--black);
 	--line-height: 1.35em;
 
+	--z-navbar: 1000;
+	--z-logo: 2000;
+
+
 	@include mq($until: desktop) {
-		--outer-margin: 0.8rem;
+		--outer-margin: 0;
 	}
 
 	@include mq($from: very-wide) {
-		--outer-margin: 10vw;
+		--outer-margin: 0;
 	}
 }
 
@@ -32,43 +36,12 @@ body {
 	font-feature-settings: "liga", "kern";
 }
 
-.bodyfade {
-	main * {
-		color: var(--orange) !important;
-		transition: none;
-		border-color: var(--orange) !important;
-	}
-
-	&.fadeout {
-		main * {
-			transition: color ease-in-out 700ms;
-			transition-delay: 50ms;
-			color: var(--foreground) !important;
-			border-color: var(--foreground) !important;
-		}
-
-		div[data-image-overlay="true"] {
-			animation: fade-out 700ms ease-in-out 50ms forwards;
-
-			@keyframes fade-out {
-				0% {
-					opacity: 1;
-				}
-
-				100% {
-					opacity: 0;
-				}
-			}
-		}
-	}
-}
 
 html {
 	box-sizing: border-box;
 }
 
 main {
-	padding-top: var(--main-offset);
 	min-height: calc(100vh);
 }
 

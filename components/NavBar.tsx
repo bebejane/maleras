@@ -27,11 +27,19 @@ export default function NavBar({ }: Props) {
     document.body.classList.toggle('slide-up', showNewsletter)
   }, [showNewsletter])
 
-
   return (
-    <nav>
-      Menu
-    </nav>
+    <>
+      <Link href="/" className={s.logo}>
+        <img src="/images/logo.png" alt="logo" />
+      </Link>
+      <nav className={s.navbar}>
+        <ul>
+          <li>Our offer</li>
+          <li>About Us</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </>
   );
 }
 

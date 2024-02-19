@@ -15,6 +15,20 @@
   }
 }
 
+.language {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  right: 0;
+  z-index: var(--z-language);
+  height: var(--navbar-height);
+
+  .active {
+    font-weight: bold;
+  }
+}
+
 .navbar {
   position: fixed;
   display: flex;

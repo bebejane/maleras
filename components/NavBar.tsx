@@ -1,12 +1,14 @@
 'use client'
 
 import React from "react";
-import Link from "next/link";
+import Link from "@components/Link";
+import NextLink from "next/link";
 import cn from 'classnames'
 import s from './NavBar.module.scss'
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useScrollInfo } from 'next-dato-utils'
+import useLocale from "../lib/hooks/useLocale";
 
 export type Props = {
 
@@ -15,6 +17,7 @@ export type Props = {
 export default function NavBar({ }: Props) {
 
   const pathname = usePathname()
+  const locale = useLocale()
   const { scrolledPosition } = useScrollInfo()
   const [open, setOpen] = useState(false)
   const [isScrolledDown, setIsScrolledDown] = useState(false)
@@ -35,9 +38,13 @@ export default function NavBar({ }: Props) {
       <nav className={s.navbar}>
         <ul>
           <li>Our offer</li>
-          <li>About Us</li>
+          <li><Link href="/about">About Us</Link></li>
           <li>Contact</li>
         </ul>
+        <nav className={s.language}>
+          <NextLink href="/" className={cn(locale === 'se' && s.active)}>Sv</NextLink>
+          <NextLink href="/en" className={cn(locale === 'en' && s.active)}>En</NextLink>
+        </nav>
       </nav>
     </>
   );

@@ -1,5 +1,8 @@
-query About($siteId: String) {
-	about(filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }) {
+query About($siteId: String, $locale: SiteLocale = sv) {
+	about(
+		locale: $locale
+		filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }
+	) {
 		id
 		title
 	}

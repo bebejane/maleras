@@ -1,5 +1,8 @@
-query Start($siteId: String) {
-	start(filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }) {
+query Start($siteId: String, $locale: SiteLocale = sv) {
+	start(
+		locale: $locale
+		filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }
+	) {
 		id
 		title
 		content {

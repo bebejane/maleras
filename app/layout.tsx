@@ -8,13 +8,12 @@ import { GlobalDocument } from '@graphql';
 import { Metadata } from 'next';
 import { Icon } from 'next/dist/lib/metadata/types/metadata-types';
 
-
 export type LayoutProps = {
   children: React.ReactNode,
   backgroundColor?: string,
 }
 
-export default async function RootLayout({ children, backgroundColor }: LayoutProps) {
+export default async function RootLayout({ children }: LayoutProps) {
 
   return (
     <html lang="sv">

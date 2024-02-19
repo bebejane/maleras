@@ -1,5 +1,7 @@
 'use client'
 
+import { locales, defaultLocale } from '@lib/i18n'
+
 import { usePathname } from "next/navigation"
 
 export default function useLocale() {
@@ -9,6 +11,6 @@ export default function useLocale() {
 
 const getLocaleFromPathname = (pathname: string) => {
   const [path, hash] = pathname.split('#')
-  const locale = path.toLowerCase().split('/')[1].length === 2 ? path.toLowerCase().split('/')[1] : undefined
-  return !locale ? 'se' : locale
+  const locale = locales.find(l => l === path.toLowerCase().split('/')[1]) ?? defaultLocale
+  return locale
 }

@@ -8,6 +8,7 @@ import s from './NavBar.module.scss'
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useScrollInfo } from 'next-dato-utils'
+import { locales, defaultLocale } from "../lib/i18n";
 import useLocale from "../lib/hooks/useLocale";
 
 export type Props = {
@@ -42,8 +43,12 @@ export default function NavBar({ }: Props) {
           <li>Contact</li>
         </ul>
         <nav className={s.language}>
-          <NextLink href="/" className={cn(locale === 'se' && s.active)}>Sv</NextLink>
-          <NextLink href="/en" className={cn(locale === 'en' && s.active)}>En</NextLink>
+          {locales.map(l =>
+            <NextLink
+              href={l === defaultLocale ? '/' : `/${l}`}
+              className={cn(locale === l && s.active)}
+            >{l}</NextLink>
+          )}
         </nav>
       </nav>
     </>

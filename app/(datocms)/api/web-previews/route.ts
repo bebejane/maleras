@@ -6,10 +6,10 @@ export const runtime = "edge"
 export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
-  return await webPreviews(req, async ({ item, itemType }) => {
-    console.log(item)
+  return await webPreviews(req, async ({ item, itemType, locale }) => {
+
     const siteId = item.attributes?.siteSelector?.siteId ?? null
-    const path = await buildRoute(itemType.attributes.api_key, item.attributes)
+    const path = await buildRoute(itemType.attributes.api_key, item.attributes, locale)
 
     if (!path) return null
     return siteId ? `${getDomain(siteId)}${path}` : path

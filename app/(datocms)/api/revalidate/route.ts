@@ -11,15 +11,11 @@ export async function POST(req: Request) {
 
     const { api_key, entity, event_type, entity_type } = payload;
     const { id, attributes } = entity
+    const siteId = attributes?.siteSelector?.siteId ?? null
     const paths: string[] = []
     const tags: string[] = [id]
 
     paths.push(await buildRoute(api_key, attributes))
-
-    switch (api_key) {
-      default:
-        break;
-    }
     api_key && tags.push(api_key)
     return revalidate(paths, tags)
   })

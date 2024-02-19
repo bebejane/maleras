@@ -9,7 +9,8 @@ import { notFound } from 'next/navigation';
 export default async function Start() {
 
   const { start, draftUrl } = await apiQuery<StartQuery, StartQueryVariables>(StartDocument, {
-    variables: { siteId: process.env.NEXT_PUBLIC_SITE_ID }
+    variables: { siteId: process.env.NEXT_PUBLIC_SITE_ID },
+    tags: ['start']
   });
 
   if (!start) return notFound();

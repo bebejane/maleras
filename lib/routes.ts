@@ -19,57 +19,19 @@ const routes: Routes = {
     typeName: "StartRecord",
     path: async (item) => '/'
   },
-  "politic": {
-    typeName: "PoliticRecord",
-    path: async (item) => {
-      const politic_category = await client.items.find(item.category)
-      return `/${politic_category.slug}/${item.slug}`
-    }
-  },
-  "politic_category": {
-    typeName: "PoliticCategoryRecord",
-    path: async (item) => `/${item.slug}`
-  },
   "about": {
     typeName: "AboutRecord",
-    path: async (item) => `/om-oss/${item.slug}`
+    path: async (item) => '/om'
   },
-  "contact_page": {
-    typeName: "ContactPageRecord",
-    path: async (item) => `/kontakt`
-  },
-  "member_page": {
-    typeName: "MemberPageRecord",
-    path: async (item) => `/bli-medlem`
-  },
-  "member_level": {
-    typeName: "MemberLevelRecord",
-    path: async (item) => '/bli-medlem'
-  },
-  "member": {
-    typeName: "MemberRecord",
-    path: async (item) => null
-  },
-  "news": {
-    typeName: "NewsRecord",
-    path: async (item) => `/medlem/aktuellt/${item.slug}`
-  },
-  "tool": {
-    typeName: "ToolRecord",
-    path: async (item) => `/medlem/verktygslada/${item.slug}`
-  },
-  "staff": {
-    typeName: "StaffRecord",
+  "contact": {
+    typeName: "ContactRecord",
     path: async (item) => '/kontakt'
   },
-  "site": {
-    typeName: "SiteRecord",
+  "offer": {
+    typeName: "OfferRecord",
     path: async (item) => '/'
-  },
-  "resource": {
-    typeName: "ResourceRecord",
-    path: async (item) => '/medlem/resurser'
-  },
+  }
+
 }
 
 export const buildRoute = async (model: string, item?: any): Promise<string> => {

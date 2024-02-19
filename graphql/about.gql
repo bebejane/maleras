@@ -1,0 +1,6 @@
+query About($siteId: String) {
+	about(filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }) {
+		id
+		title
+	}
+}

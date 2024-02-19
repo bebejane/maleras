@@ -34,7 +34,7 @@ const routes: Routes = {
 
 }
 
-export const buildRoute = async (model: string, item?: any): Promise<string> => {
+export const buildRoute = async (model: string, item?: any, locale?: string): Promise<string> => {
   if (!routes[model]) throw new Error(`Invalid model: ${model}`)
   return await routes[model].path(item)
 }
@@ -44,6 +44,10 @@ export const recordToRoute = async (record: any): Promise<string> => {
   const model = Object.keys(routes).find(key => routes[key].typeName === __typename)
   if (!model) throw new Error(`Invalid record: ${__typename}`)
   return await buildRoute(model, record)
+}
+
+export const getDomain = (siteId: string): string => {
+  return `https://maleras-${siteId}.vercel.app`
 }
 
 export default routes

@@ -1,0 +1,7 @@
+query Offer($siteId: String) {
+	offer(filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }) {
+		id
+		title
+		content
+	}
+}

@@ -1,4 +1,13 @@
 
+declare module '*/contact.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const Contact: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
 declare module '*/ImageFragment.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
@@ -44,11 +53,29 @@ declare module '*/global.gql' {
 }
     
 
+declare module '*/offer.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const Offer: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
 declare module '*/site.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
   export const Site: DocumentNode;
 export const SiteFragment: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
+declare module '*/start.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const Start: DocumentNode;
 
   export default defaultDocument;
 }

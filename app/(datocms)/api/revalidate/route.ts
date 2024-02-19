@@ -12,6 +12,12 @@ export async function POST(req: Request) {
     const { api_key, entity, event_type, entity_type } = payload;
     const { id, attributes } = entity
     const siteId = attributes?.siteSelector?.siteId ?? null
+
+    if (siteId && siteId !== process.env.NEXT_PUBLIC_SITE_ID) {
+      console.log('Site ID does not match', siteId, process.env.NEXT_PUBLIC_SITE_ID)
+      return
+    }
+
     const paths: string[] = []
     const tags: string[] = [id]
 

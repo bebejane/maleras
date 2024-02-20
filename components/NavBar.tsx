@@ -7,7 +7,7 @@ import cn from 'classnames'
 import s from './NavBar.module.scss'
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { useScrollInfo } from 'next-dato-utils'
+import { useScrollInfo } from 'next-dato-utils/hooks'
 import { locales, defaultLocale } from "../lib/i18n";
 import useLocale from "../lib/hooks/useLocale";
 

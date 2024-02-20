@@ -1,4 +1,5 @@
 import '@styles/index.scss'
+import { defaultLocale } from '@lib/i18n';
 import { apiQuery } from "next-dato-utils";
 import { GlobalDocument } from "@graphql";
 import { Metadata } from "next/types";
@@ -23,7 +24,7 @@ export type LayoutProps = {
 export const dynamic = 'force-static'
 
 export default async function RootLayout({ children, params }: LayoutProps) {
-  const locale = params?.params?.locale ?? 'sv'
+  const locale = params?.params?.locale ?? defaultLocale
 
   return (
     <html lang={locale}>
@@ -39,7 +40,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
 }
 
 export async function generateMetadata({ params }: LocaleParams) {
-  params = Object.keys(params).length === 0 ? { locale: 'sv' } : params
+  params = Object.keys(params).length === 0 ? { locale: defaultLocale } : params
 
   const { site: { globalSeo, faviconMetaTags } } = await apiQuery<GlobalQuery, GlobalQueryVariables>(GlobalDocument, {
     variables: { locale: params.locale as SiteLocale },

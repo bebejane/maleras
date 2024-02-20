@@ -14,7 +14,7 @@ export default async function About({ params }: LocaleParams) {
     tags: ['about']
   });
 
-  if (!About) return notFound();
+  if (!about) return notFound();
 
   return (
     <>

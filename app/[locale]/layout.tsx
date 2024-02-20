@@ -1,5 +1,3 @@
-'use server'
-
 import '@styles/index.scss'
 import { apiQuery } from "next-dato-utils";
 import { GlobalDocument } from "@graphql";
@@ -20,11 +18,13 @@ export type LayoutProps = {
   children: React.ReactNode,
   params: LocaleParams,
   backgroundColor?: string,
-
 }
+
+export const dynamic = 'force-static'
 
 export default async function RootLayout({ children, params }: LayoutProps) {
   const locale = params?.params?.locale ?? 'sv'
+
   return (
     <html lang={locale}>
       <body id="root">

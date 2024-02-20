@@ -1,5 +1,3 @@
-'use server'
-
 import s from './page.module.scss'
 import cn from 'classnames';
 import { LocaleParams } from '@app/[locale]/layout';

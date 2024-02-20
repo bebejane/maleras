@@ -1,7 +1,8 @@
 import s from './page.module.scss'
 import cn from 'classnames';
 import { LocaleParams } from '@app/[locale]/layout';
-import { apiQuery, DraftMode, Block } from 'next-dato-utils';
+import { apiQuery } from 'next-dato-utils/api';
+import { DraftMode, Block } from 'next-dato-utils/components';
 import { StartDocument } from '@graphql';
 import { notFound } from 'next/navigation';
 import * as BlockComponets from '@components/content/blocks';

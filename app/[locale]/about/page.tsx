@@ -3,7 +3,8 @@
 import s from './page.module.scss'
 import cn from 'classnames';
 import { LocaleParams } from '@app/[locale]/layout';
-import { apiQuery, DraftMode } from 'next-dato-utils';
+import { apiQuery } from 'next-dato-utils/api';
+import { DraftMode } from 'next-dato-utils/components';
 import { AboutDocument } from '@graphql';
 import { notFound } from 'next/navigation';
 

@@ -22,6 +22,18 @@ const nextConfig = {
 			fullUrl: false,
 		},
 	},
+	async rewrites() {
+		return [
+			{
+				source: "/en/:path*",
+				destination: "/en/:path*",
+			},
+			{
+				source: "/:path*",
+				destination: "/sv/:path*",
+			},
+		];
+	},
 	async headers() {
 		return [
 			{

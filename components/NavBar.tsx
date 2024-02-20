@@ -6,7 +6,7 @@ import NextLink from "next/link";
 import cn from 'classnames'
 import s from './NavBar.module.scss'
 import { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useScrollInfo } from 'next-dato-utils'
 import { locales, defaultLocale } from "../lib/i18n";
 import useLocale from "../lib/hooks/useLocale";
@@ -21,15 +21,6 @@ export default function NavBar({ }: Props) {
   const locale = useLocale()
   const { scrolledPosition } = useScrollInfo()
   const [open, setOpen] = useState(false)
-  const [isScrolledDown, setIsScrolledDown] = useState(false)
-  const [showNewsletter, setShowNewsletter] = useState(false)
-
-  useEffect(() => { setOpen(false) }, [pathname])
-  useEffect(() => { setIsScrolledDown(scrolledPosition > 0) }, [scrolledPosition])
-
-  useEffect(() => {
-    document.body.classList.toggle('slide-up', showNewsletter)
-  }, [showNewsletter])
 
   return (
     <>
@@ -43,11 +34,16 @@ export default function NavBar({ }: Props) {
           <li>Contact</li>
         </ul>
         <nav className={s.language}>
-          {locales.map(l =>
-            <NextLink
-              href={l === defaultLocale ? '/' : `/${l}`}
-              className={cn(locale === l && s.active)}
-            >{l}</NextLink>
+          {locales.map((l, idx) => {
+            const href = `${l === defaultLocale ? '/' : `/${l}`}${pathname === '/' ? '' : pathname.replace(`/${locale}`, '')}`.replace('//', '/')
+            return (
+              <NextLink
+                key={l}
+                href={href}
+                className={cn(locale === l && s.active)}
+              >{l}</NextLink>
+            )
+          }
           )}
         </nav>
       </nav>

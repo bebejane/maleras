@@ -21,6 +21,9 @@ query Start($siteId: String, $locale: SiteLocale = sv) {
 					id
 					title
 					slug
+					image {
+						...ImageFragment
+					}
 				}
 			}
 		}

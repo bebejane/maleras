@@ -1,4 +1,3 @@
-'use client'
 
 import React from "react";
 import { Link } from '@navigation'
@@ -6,12 +5,10 @@ import NextLink from "next/link";
 import cn from 'classnames'
 import s from './NavBar.module.scss'
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import { useScrollInfo } from 'next-dato-utils/hooks'
-import { locales, defaultLocale } from "@i18n";
+import { locales } from "@i18n";
 import { useRouter } from '@navigation';
-import useLocale from "../lib/hooks/useLocale";
-
+import { useTranslations } from "next-intl";
 
 export type Props = {
   locale: string
@@ -19,11 +16,8 @@ export type Props = {
 
 export default function NavBar({ locale }: Props) {
 
-  //const locale = useLocale()
-  const { scrolledPosition } = useScrollInfo()
-  const [open, setOpen] = useState(false)
-  const router = useRouter();
-  console.log(locale)
+  const t = useTranslations('NavBar')
+
   return (
     <>
       <Link href="/" className={s.logo}>
@@ -31,9 +25,9 @@ export default function NavBar({ locale }: Props) {
       </Link>
       <nav className={s.navbar}>
         <ul>
-          <li><Link href={`/offer`}>Our offer</Link></li>
-          <li><Link href={`/about`}>About Us</Link></li>
-          <li>Contact</li>
+          <li><Link href={`/offer`}>{t('our-offer')}</Link></li>
+          <li><Link href={`/about`}>{t('about')}</Link></li>
+          <li>{t('contact')}</li>
         </ul>
         <nav className={s.language}>
           {locales.map((l, idx) => {

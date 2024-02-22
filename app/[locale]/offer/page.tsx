@@ -6,6 +6,7 @@ import { DraftMode, Block } from 'next-dato-utils/components';
 import { OfferDocument } from '@graphql';
 import { notFound } from 'next/navigation';
 import * as BlockComponets from '@components/content/blocks';
+import Content from '../../../components/content/Content';
 
 export default async function Offer({ params }: LocaleParams) {
 
@@ -20,6 +21,7 @@ export default async function Offer({ params }: LocaleParams) {
     <>
       <article className={cn(s.start)}>
         <h1>{offer.title}</h1>
+        <Content content={offer.content} />
       </article>
       <DraftMode url={draftUrl} tag={offer?.id} />
     </>

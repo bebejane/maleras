@@ -7,6 +7,7 @@ import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
 import { AboutDocument } from '@graphql';
 import { notFound } from 'next/navigation';
+import Content from '../../../components/content/Content';
 
 export default async function About({ params }: LocaleParams) {
 
@@ -20,8 +21,8 @@ export default async function About({ params }: LocaleParams) {
   return (
     <>
       <article className={cn(s.about)}>
-        <h1>About {params.locale}</h1>
-        {about?.title}
+        <h1>{about.title}</h1>
+        <Content content={about.content} />
       </article>
       <DraftMode url={draftUrl} tag={about?.id} />
     </>

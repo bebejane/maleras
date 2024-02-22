@@ -2,14 +2,12 @@ import { StructuredContent } from 'next-dato-utils/components'
 import * as blocks from './blocks'
 
 export type Props = {
-  id?: string
   content: any
   className?: string
-  onClick?: (imageId: string) => void
 }
 
 
-export default function Content({ id, content, className, onClick }: Props) {
+export default function Content({ content, className }: Props) {
 
   if (!content)
     return null

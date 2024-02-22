@@ -5,5 +5,10 @@ query About($siteId: String, $locale: SiteLocale = sv) {
 	) {
 		id
 		title
+		content {
+			blocks
+			links
+			value
+		}
 	}
 }

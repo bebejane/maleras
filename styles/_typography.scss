@@ -27,6 +27,7 @@ h2 {
   line-height: 1.25em;
   font-family: $headline-font;
   font-size: 1.2rem;
+
   @include mq($from: desktop) {
     font-size: 1.4rem;
   }
@@ -35,7 +36,7 @@ h2 {
 h1,
 h2 {
   padding-bottom: 0.7em;
-  text-align: center;
+
 }
 
 .logo {
@@ -101,6 +102,7 @@ blockquote {
 .intro {
   font-size: 1.2rem;
   display: inline;
+
   @include mq($from: desktop) {
     font-size: 1.3rem;
   }

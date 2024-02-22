@@ -1,7 +1,7 @@
 import s from './OfferBlock.module.scss'
 import React, { useRef } from 'react'
 import { Image } from 'react-datocms'
-import Link from '@components/Link'
+import { Link } from '@navigation'
 import Content from '../Content'
 
 export type LayoutProps = { data: OfferBlockRecord }

@@ -1,18 +1,6 @@
-import { paths } from "./i18n.mjs";
+import createNextIntlPlugin from "next-intl/plugin";
 
-const i18Rewrites = () => {
-	const rewrites = [];
-
-	Object.keys(paths).forEach((k) =>
-		rewrites.push({
-			source: `/${paths[k].sv}`,
-			destination: `/sv/${paths[k].en}`,
-			locale: false,
-		})
-	);
-
-	return rewrites;
-};
+const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -37,9 +25,6 @@ const nextConfig = {
 		fetches: {
 			fullUrl: false,
 		},
-	},
-	async rewrites() {
-		return i18Rewrites();
 	},
 	async headers() {
 		return [
@@ -73,4 +58,4 @@ const nextConfig = {
 	},
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

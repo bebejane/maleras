@@ -1,8 +1,8 @@
 'use client'
 
-import { locales, defaultLocale } from '../../i18n.mjs'
+import { locales, defaultLocale } from '@i18n'
 
-import { usePathname } from "next/navigation"
+import { usePathname } from "@navigation"
 
 export default function useLocale() {
   const pathname = usePathname()

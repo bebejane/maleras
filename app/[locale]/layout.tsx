@@ -1,5 +1,7 @@
 import '@styles/index.scss'
-import { defaultLocale } from '@i18n.mjs';
+import { defaultLocale, locales } from '@i18n';
+import { unstable_setRequestLocale as setRequestLocale } from 'next-intl/server';
+
 import { apiQuery } from 'next-dato-utils/api';
 import { GlobalDocument } from "@graphql";
 import { Metadata } from "next/types";
@@ -17,19 +19,20 @@ export type LocaleParams = {
 
 export type LayoutProps = {
   children: React.ReactNode,
-  params: LocaleParams,
+  params: LocaleParams['params'],
   backgroundColor?: string,
 }
 
 export const dynamic = 'force-static'
 
 export default async function RootLayout({ children, params }: LayoutProps) {
-  const locale = params?.params?.locale ?? defaultLocale
+  const locale = params?.locale ?? defaultLocale
+  setRequestLocale(locale);
 
   return (
     <html lang={locale}>
       <body id="root">
-        <NavBar />
+        <NavBar locale={locale} />
         <main>
           {children}
         </main>
@@ -37,6 +40,10 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       </body>
     </html>
   );
+}
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({ params }: LocaleParams) {

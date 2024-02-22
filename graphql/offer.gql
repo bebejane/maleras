@@ -10,6 +10,17 @@ query Offer($siteId: String, $locale: SiteLocale = sv) {
 			links
 			value
 		}
+		image {
+			...ImageFragment
+		}
+	}
+	allOfferCategories(locale: $locale, first: 100) {
+		id
+		title
+		slug
+		_allReferencingOfferItems(first: 100, locale: $locale) {
+			...OfferItemFragment
+		}
 	}
 }
 
@@ -47,11 +58,24 @@ fragment OfferItemFragment on OfferItemRecord {
 		title
 	}
 	subtitle
-	text
+	content {
+		blocks
+		links
+		value
+	}
 	gallery {
 		id
 		media {
 			...MediaFragment
 		}
+	}
+	backgroundColor {
+		hex
+		red
+		green
+		blue
+	}
+	backgroundImage {
+		...ImageFragment
 	}
 }

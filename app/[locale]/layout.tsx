@@ -1,8 +1,6 @@
 import '@styles/index.scss'
 import { defaultLocale, locales } from '@i18n';
 import { unstable_setRequestLocale as setRequestLocale } from 'next-intl/server';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
-
 import { apiQuery } from 'next-dato-utils/api';
 import { GlobalDocument } from "@graphql";
 import { Metadata } from "next/types";
@@ -31,19 +29,14 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   const locale = params?.locale ?? defaultLocale
   setRequestLocale(locale);
 
-
   return (
     <html lang={locale}>
       <body id="root">
-
         <NavBar locale={locale} />
         <main>
-
           {children}
-
         </main>
         <Footer />
-
       </body>
     </html>
   );

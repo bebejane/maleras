@@ -1,7 +1,7 @@
 'use client';
 
 import cn from 'classnames';
-import { defaultLocale } from '@lib/i18n';
+import { paths, defaultLocale, translatePath } from "@i18n.mjs";
 import NextLink, { LinkProps } from 'next/link';
 import useLocale from '@lib/hooks/useLocale';
 import { usePathname } from 'next/navigation';
@@ -39,10 +39,11 @@ export default Link;
 const parseHref = (href: string, pathname: string, locale: string) => {
 
   if (href.startsWith('http')) return href;
+
   if (href.startsWith('#'))
-    return `${pathname}${href}`;
+    return `${pathname}${translatePath(href, locale)}`;
   else {
     const localeSegment = (locale === defaultLocale ? '' : `/${locale}`).toLowerCase()
-    return `${localeSegment}/${href.slice(1)}`
+    return `${localeSegment}/${translatePath(`/${href.slice(1)}`, locale)}`
   }
 }

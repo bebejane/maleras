@@ -219,20 +219,11 @@ p a {
 }
 
 button {
-	width: 100%;
-	color: var(--foreground);
+
 	border: 0;
-	background-color: transparent;
-	padding-bottom: var(--space);
-	padding-top: var(--space-small);
-	transition: letter-spacing 0.3s;
 
 	@include mq($from: desktop) {
-		&:hover {
-			color: var(--orange);
-			cursor: pointer;
-			letter-spacing: 0.4em;
-		}
+		&:hover {}
 	}
 
 	&[disabled] {

@@ -1,6 +1,6 @@
 import styles from './FullscreenVideo.module.scss'
 import React from 'react'
-import { VideoPlayer, ArrowLink } from '/components'
+import { VideoPlayer, ArrowLink } from '@components'
 import Link from 'next/link'
 import { useRef } from 'react'
 

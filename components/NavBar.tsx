@@ -8,7 +8,7 @@ import s from './NavBar.module.scss'
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useScrollInfo } from 'next-dato-utils/hooks'
-import { locales, defaultLocale } from "../lib/i18n";
+import { locales, defaultLocale } from "@i18n.mjs";
 import useLocale from "../lib/hooks/useLocale";
 
 export type Props = {
@@ -30,12 +30,12 @@ export default function NavBar({ }: Props) {
       <nav className={s.navbar}>
         <ul>
           <li>Our offer</li>
-          <li><Link href="/about">About Us</Link></li>
+          <li><Link href={`/about`}>About Us</Link></li>
           <li>Contact</li>
         </ul>
         <nav className={s.language}>
           {locales.map((l, idx) => {
-            const href = `${l === defaultLocale ? '/' : `/${l}`}${pathname === '/' ? '' : pathname.replace(`/${locale}`, '')}`.replace('//', '/')
+            const href = `${l === defaultLocale ? '/' : `/${l}`}`
             return (
               <NextLink
                 key={l}
@@ -43,8 +43,7 @@ export default function NavBar({ }: Props) {
                 className={cn(locale === l && s.active)}
               >{l}</NextLink>
             )
-          }
-          )}
+          })}
         </nav>
       </nav>
     </>

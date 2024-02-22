@@ -1,7 +1,50 @@
-query Offer($siteId: String) {
-	offer(filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }) {
+query Offer($siteId: String, $locale: SiteLocale = sv) {
+	offer(
+		locale: $locale
+		filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }
+	) {
 		id
 		title
-		content
+		content {
+			blocks
+			links
+			value
+		}
+	}
+}
+
+query OfferCategories($locale: SiteLocale = sv) {
+	allOfferItemCategories(locale: $locale, first: 100) {
+		id
+		title
+	}
+}
+
+query OfferItemsByCategory($categoryId: ItemId, $locale: SiteLocale = sv) {
+	allOfferItems(locale: $locale, first: 100, filter: { category: { eq: $categoryId } }) {
+		...OfferItemFragment
+	}
+}
+
+query AllOfferItems($locale: SiteLocale = sv) {
+	allOfferItems(locale: $locale, first: 100) {
+		...OfferItemFragment
+	}
+}
+
+fragment OfferItemFragment on OfferItemRecord {
+	id
+	title
+	category {
+		id
+		title
+	}
+	subtitle
+	text
+	gallery {
+		id
+		media {
+			...MediaFragment
+		}
 	}
 }

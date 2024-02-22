@@ -1,5 +1,4 @@
-import { StructuredContent } from 'next-dato-utils'
-//import StructuredContent from './StructuredContent'
+import { StructuredContent } from 'next-dato-utils/components'
 import * as blocks from './blocks'
 
 export type Props = {

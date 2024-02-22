@@ -1,5 +1,5 @@
 import '@styles/index.scss'
-import { defaultLocale } from '@lib/i18n';
+import { defaultLocale } from '@i18n.mjs';
 import { apiQuery } from 'next-dato-utils/api';
 import { GlobalDocument } from "@graphql";
 import { Metadata } from "next/types";

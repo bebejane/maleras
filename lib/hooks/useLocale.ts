@@ -1,6 +1,6 @@
 'use client'
 
-import { locales, defaultLocale } from '@lib/i18n'
+import { locales, defaultLocale } from '../../i18n.mjs'
 
 import { usePathname } from "next/navigation"
 

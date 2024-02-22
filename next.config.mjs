@@ -1,3 +1,19 @@
+import { paths } from "./i18n.mjs";
+
+const i18Rewrites = () => {
+	const rewrites = [];
+
+	Object.keys(paths).forEach((k) =>
+		rewrites.push({
+			source: `/${paths[k].sv}`,
+			destination: `/sv/${paths[k].en}`,
+			locale: false,
+		})
+	);
+
+	return rewrites;
+};
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	sassOptions: {
@@ -23,16 +39,7 @@ const nextConfig = {
 		},
 	},
 	async rewrites() {
-		return [
-			{
-				source: "/en/:path*",
-				destination: "/en/:path*",
-			},
-			{
-				source: "/:path*",
-				destination: "/sv/:path*",
-			},
-		];
+		return i18Rewrites();
 	},
 	async headers() {
 		return [

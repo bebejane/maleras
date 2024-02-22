@@ -1,5 +1,5 @@
 import { buildClient } from "@datocms/cma-client-browser"
-import { defaultLocale } from "./i18n"
+import { defaultLocale, paths } from "../i18n.mjs"
 
 const client = buildClient({
   apiToken: process.env.DATOCMS_API_TOKEN,
@@ -11,26 +11,26 @@ type Routes = {
 }
 
 type Route = {
-  path: ((item?: any) => Promise<string | null>)
+  path: ((item: any, locale: string) => Promise<string | null>)
   typeName: string
 }
 
 const routes: Routes = {
   "start": {
     typeName: "StartRecord",
-    path: async (item) => '/'
+    path: async (item, locale) => paths.start[locale]
   },
   "about": {
     typeName: "AboutRecord",
-    path: async (item) => '/om'
+    path: async (item, locale) => paths.about[locale]
   },
   "contact": {
     typeName: "ContactRecord",
-    path: async (item) => '/kontakt'
+    path: async (item, locale) => paths.contact[locale]
   },
   "offer": {
     typeName: "OfferRecord",
-    path: async (item) => '/'
+    path: async (item, locale) => paths.start[locale]
   }
 
 }
@@ -38,7 +38,7 @@ const routes: Routes = {
 export const buildRoute = async (model: string, item?: any, locale?: string): Promise<string> => {
   if (!routes[model]) throw new Error(`Invalid model: ${model}`)
   const localePrefix = !locale || locale === defaultLocale ? '' : `/${locale}`
-  return `${localePrefix}${await routes[model].path(item)}`
+  return `${localePrefix}${await routes[model].path(item, locale)}`
 }
 
 export const recordToRoute = async (record: any): Promise<string> => {

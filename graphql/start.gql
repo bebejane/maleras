@@ -14,6 +14,15 @@ query Start($siteId: String, $locale: SiteLocale = sv) {
 					...MediaFragment
 				}
 			}
+			... on OfferBlockRecord {
+				id
+				title
+				categories {
+					id
+					title
+					slug
+				}
+			}
 		}
 		siteSelector {
 			siteId

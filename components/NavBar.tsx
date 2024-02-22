@@ -1,13 +1,9 @@
 
 import React from "react";
 import { Link } from '@navigation'
-import NextLink from "next/link";
 import cn from 'classnames'
 import s from './NavBar.module.scss'
-import { useEffect, useState } from "react";
-import { useScrollInfo } from 'next-dato-utils/hooks'
 import { locales } from "@i18n";
-import { useRouter } from '@navigation';
 import { useTranslations } from "next-intl";
 
 export type Props = {
@@ -30,16 +26,14 @@ export default function NavBar({ locale }: Props) {
           <li>{t('contact')}</li>
         </ul>
         <nav className={s.language}>
-          {locales.map((l, idx) => {
-            const href = `/${l}`
-            return (
-              <NextLink
-                key={l}
-                href={href}
-                className={cn(locale === l && s.active)}
-              >{l}</NextLink>
-            )
-          })}
+          {locales.map((l, idx) =>
+            <Link
+              key={l}
+              href={'/'}
+              locale={l}
+              className={cn(locale === l && s.active)}
+            >{l}</Link>
+          )}
         </nav>
       </nav>
     </>

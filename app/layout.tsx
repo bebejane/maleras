@@ -1,5 +1,3 @@
-'use server'
-
 import '@styles/index.scss'
 
 export type LayoutProps = {

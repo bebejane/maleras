@@ -1,5 +1,6 @@
 import { buildClient } from "@datocms/cma-client-browser"
-import { defaultLocale, paths } from "../i18n.mjs"
+import { defaultLocale } from "@i18n"
+import { getPathname } from '@navigation';
 
 const client = buildClient({
   apiToken: process.env.DATOCMS_API_TOKEN,
@@ -18,21 +19,24 @@ type Route = {
 const routes: Routes = {
   "start": {
     typeName: "StartRecord",
-    path: async (item, locale) => paths.start[locale]
+    path: async (item, locale) => getPathname({ locale, href: '/' })
   },
   "about": {
     typeName: "AboutRecord",
-    path: async (item, locale) => paths.about[locale]
+    path: async (item, locale) => getPathname({ locale, href: '/about' })
   },
   "contact": {
     typeName: "ContactRecord",
-    path: async (item, locale) => paths.contact[locale]
+    path: async (item, locale) => getPathname({ locale, href: '/' })
   },
   "offer": {
     typeName: "OfferRecord",
-    path: async (item, locale) => paths.start[locale]
+    path: async (item, locale) => getPathname({ locale, href: '/offer' })
+  },
+  "offer_category": {
+    typeName: "OfferCategoryRecord",
+    path: async (item, locale) => getPathname({ locale, href: { pathname: '/offer/[offerCategory]', params: { offerCategory: item.slug } } })
   }
-
 }
 
 export const buildRoute = async (model: string, item?: any, locale?: string): Promise<string> => {

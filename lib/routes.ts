@@ -35,7 +35,11 @@ const routes: Routes = {
   },
   "offer_category": {
     typeName: "OfferCategoryRecord",
-    path: async (item, locale) => getPathname({ locale, href: { pathname: '/offer/[offerCategory]', params: { offerCategory: item.slug } } })
+    path: async (item, locale) => getPathname({ locale, href: '/offer' })
+  },
+  "offer_item": {
+    typeName: "OfferItemRecord",
+    path: async (item, locale) => getPathname({ locale, href: '/offer' })
   }
 }
 

@@ -13,8 +13,15 @@ query Offer($siteId: String, $locale: SiteLocale = sv) {
 	}
 }
 
-query OfferCategories($locale: SiteLocale = sv) {
-	allOfferItemCategories(locale: $locale, first: 100) {
+query AllOfferCategories($locale: SiteLocale = sv) {
+	allOfferCategories(locale: $locale, first: 100) {
+		id
+		title
+		slug
+	}
+}
+query OfferCategory($slug: String, $locale: SiteLocale = sv) {
+	offerCategory(locale: $locale, filter: { slug: { eq: $slug } }) {
 		id
 		title
 	}

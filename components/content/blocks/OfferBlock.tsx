@@ -15,7 +15,7 @@ export default function OfferBlock({ data: { title, text, categories } }: Layout
 			<ul>
 				{categories.map(({ title, slug }, i) => (
 					<li key={i}>
-						{title}
+						<Link href={{ pathname: `/offer/[offerCategory]`, params: { offerCategory: slug } }}>{title}</Link>
 					</li>
 				))}
 			</ul>

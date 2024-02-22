@@ -75,7 +75,8 @@ declare module '*/offer.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
   export const Offer: DocumentNode;
-export const OfferCategories: DocumentNode;
+export const AllOfferCategories: DocumentNode;
+export const OfferCategory: DocumentNode;
 export const OfferItemsByCategory: DocumentNode;
 export const AllOfferItems: DocumentNode;
 export const OfferItemFragment: DocumentNode;

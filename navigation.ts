@@ -19,13 +19,11 @@ export const pathnames = {
     en: '/offer',
     sv: '/erbjudande'
   },
-  /*
-  // Dynamic params are supported via square brackets
-  '/news/[articleSlug]-[articleId]': {
-    en: '/news/[articleSlug]-[articleId]',
-    de: '/neuigkeiten/[articleSlug]-[articleId]'
+  '/offer/[offerCategory]': {
+    en: '/offer/[offerCategory]',
+    sv: '/erbjudande/[offerCategory]'
   },
-
+  /*
   // Also (optional) catch-all segments are supported
   '/categories/[...slug]': {
     en: '/categories/[...slug]',

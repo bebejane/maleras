@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Bildkonst Sverige',
-    short_name: 'Bildkonst Sverige',
-    description: 'Bildkonst Sverige',
+    name: 'Målerås Glasbruk',
+    short_name: 'Målerås',
+    description: 'Målerås Glasbruk',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

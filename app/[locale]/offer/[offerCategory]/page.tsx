@@ -5,7 +5,6 @@ import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
 import { AllOfferCategoriesDocument, OfferCategoryDocument } from '@graphql';
 import { notFound } from 'next/navigation';
-import * as BlockComponets from '@components/content/blocks';
 
 type Params = { params: LocaleParams['params'] & { offerCategory: string } }
 

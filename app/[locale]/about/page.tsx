@@ -7,7 +7,7 @@ import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
 import { AboutDocument } from '@graphql';
 import { notFound } from 'next/navigation';
-import Content from '../../../components/content/Content';
+import Content from '@components/Content';
 
 export default async function About({ params }: LocaleParams) {
 

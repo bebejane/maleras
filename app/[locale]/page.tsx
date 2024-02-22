@@ -6,7 +6,7 @@ import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode, Block } from 'next-dato-utils/components';
 import { StartDocument } from '@graphql';
 import { notFound } from 'next/navigation';
-import * as BlockComponets from '@components/content/blocks';
+import * as BlockComponets from '@components/blocks';
 
 export default async function Start({ params }: LocaleParams) {
 

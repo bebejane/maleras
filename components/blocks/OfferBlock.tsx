@@ -6,7 +6,7 @@ import 'swiper/css';
 import React, { useRef, useState } from 'react'
 import { Image } from 'react-datocms'
 import { Link } from '@navigation'
-import Content from '../Content'
+import Content from '@components/Content';
 import { Swiper as SwiperType } from 'swiper/types';
 
 export type LayoutProps = { data: OfferBlockRecord }

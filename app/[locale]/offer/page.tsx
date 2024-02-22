@@ -5,8 +5,8 @@ import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode, Block } from 'next-dato-utils/components';
 import { OfferDocument } from '@graphql';
 import { notFound } from 'next/navigation';
-import * as BlockComponets from '@components/content/blocks';
-import Content from '../../../components/content/Content';
+import * as BlockComponets from '@components/blocks';
+import Content from '@components/Content';
 
 export default async function Offer({ params }: LocaleParams) {
 

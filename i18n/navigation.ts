@@ -1,8 +1,9 @@
-import { locales as allLocales, defaultLocale } from './i18n';
+import { LocalePrefix } from 'next-intl/dist/types/src/shared/types';
+import { locales as allLocales } from './';
 import { Pathnames, createLocalizedPathnamesNavigation } from 'next-intl/navigation';
 
 export const locales = allLocales;
-export const localePrefix = 'always'; // Default
+export const localePrefix: LocalePrefix = 'always';
 
 export const pathnames = {
   '/': '/',

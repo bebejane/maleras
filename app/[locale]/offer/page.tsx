@@ -66,7 +66,6 @@ export default async function Offer({ params }: LocaleParams) {
             </section>
           )
         })}
-
       </article>
       <DraftMode url={draftUrl} tag={offer?.id} />
     </>

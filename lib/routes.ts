@@ -1,6 +1,6 @@
 import { buildClient } from "@datocms/cma-client-browser"
 import { defaultLocale } from "@i18n"
-import { getPathname } from '@navigation';
+import { getPathname } from '@i18n/navigation';
 
 const client = buildClient({
   apiToken: process.env.DATOCMS_API_TOKEN,

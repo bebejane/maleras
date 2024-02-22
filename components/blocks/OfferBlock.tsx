@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import React, { useRef, useState } from 'react'
 import { Image } from 'react-datocms'
-import { Link } from '@navigation'
+import { Link } from '@i18n/navigation'
 import Content from '@components/Content';
 import { Swiper as SwiperType } from 'swiper/types';
 
@@ -24,7 +24,7 @@ export default function OfferBlock({ data: { title, text, categories } }: Layout
 				<ul>
 					{categories.map(({ title, slug }, i) => (
 						<li key={i} className={i === index ? s.active : undefined} onMouseEnter={() => swiperRef.current.slideTo(i)}>
-							<Link href={{ pathname: `/offer/[offerCategory]`, params: { offerCategory: slug } }}>
+							<Link href={{ pathname: `/offer`, hash: slug }}>
 								{title}
 							</Link>
 						</li>

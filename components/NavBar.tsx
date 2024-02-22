@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from '@navigation'
+import { Link } from '@i18n/navigation'
 import cn from 'classnames'
 import s from './NavBar.module.scss'
 import { locales } from "@i18n";

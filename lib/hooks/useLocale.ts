@@ -2,7 +2,7 @@
 
 import { locales, defaultLocale } from '@i18n'
 
-import { usePathname } from "@navigation"
+import { usePathname } from "@i18n/navigation"
 
 export default function useLocale() {
   const pathname = usePathname()

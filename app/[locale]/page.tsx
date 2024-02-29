@@ -25,6 +25,9 @@ export default async function Start({ params }: LocaleParams) {
         {start?.content?.map((block, idx) =>
           <Block key={idx} components={BlockComponets} data={block} />
         )}
+        <section>
+          About start section
+        </section>
       </article>
       <DraftMode url={draftUrl} tag={start?.id} />
     </>

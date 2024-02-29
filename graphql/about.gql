@@ -5,10 +5,24 @@ query About($siteId: String, $locale: SiteLocale = sv) {
 	) {
 		id
 		title
+		intro
+		media {
+			...MediaFragment
+		}
 		content {
-			blocks
-			links
-			value
+			... on AboutBlockRecord {
+				__typename
+				id
+				headline
+				text {
+					blocks
+					links
+					value
+				}
+				media {
+					...MediaFragment
+				}
+			}
 		}
 	}
 }

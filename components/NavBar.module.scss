@@ -6,7 +6,6 @@
   top: 0;
   left: 0;
   z-index: var(--z-logo);
-
   height: var(--navbar-height);
 
   img {
@@ -25,7 +24,6 @@
   height: var(--navbar-height);
 
   a {
-
     margin-right: 0.2em;
 
     &.active {
@@ -55,6 +53,5 @@
     li {
       margin-left: 1ch;
     }
-
   }
 }

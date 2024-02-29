@@ -1,1 +1,34 @@
-.about {}
+.about {
+  header {
+    position: relative;
+    min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: row;
+
+    figure,
+    .video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .image,
+    .video {
+      max-height: 100vh;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    width: 100%;
+
+    section {}
+
+  }
+}

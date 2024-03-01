@@ -27,6 +27,15 @@ query Start($siteId: String, $locale: SiteLocale = sv) {
 				}
 			}
 		}
+		aboutHeadline
+		aboutText {
+			links
+			blocks
+			value
+		}
+		aboutImage {
+			...ImageFragment
+		}
 		siteSelector {
 			siteId
 		}

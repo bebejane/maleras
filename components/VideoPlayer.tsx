@@ -4,8 +4,8 @@ import styles from './VideoPlayer.module.scss'
 import cn from 'classnames'
 import { useEffect, useState, useRef, useCallback } from 'react'
 import { useInView } from 'react-intersection-observer'
-import SoundOn from '/public/images/sound-on.svg'
-import SondOff from '/public/images/sound-off.svg'
+//import SoundOn from '/public/images/sound-on.svg'
+//import SondOff from '/public/images/sound-off.svg'
 
 export type VideoPlayerProps = { data: FileField, className?: string }
 
@@ -71,11 +71,11 @@ export default function VideoPlayer({ data, className }: VideoPlayerProps) {
 				disablePictureInPicture={true}
 			//poster={data.video?.thumbnailUrl}
 			/>
-			{hasAudio &&
+			{/*hasAudio &&
 				<div ref={muteRef} className={cn(styles.mute, !muted && styles.enabled)} onClick={handleMute}>
 					{muted ? <SondOff /> : <SoundOn />}
 				</div>
-			}
+	*/}
 		</div>
 	)
 }

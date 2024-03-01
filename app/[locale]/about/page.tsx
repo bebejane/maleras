@@ -25,8 +25,10 @@ export default async function About({ params }: LocaleParams) {
     <>
       <article className={cn(s.about)}>
         <header>
-          <h1>{about.title}</h1>
-          <p>{about.intro}</p>
+          <section>
+            <h1>{about.title}</h1>
+            <h2>{about.intro}</h2>
+          </section>
           {about.media.responsiveImage ?
             <figure className={s.image}>
               <Image data={about.media.responsiveImage} />

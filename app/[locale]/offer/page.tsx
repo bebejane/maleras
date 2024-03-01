@@ -33,7 +33,7 @@ export default async function Offer({ params }: LocaleParams) {
           <ul>
             {allOfferCategories.filter(({ _allReferencingOfferItems }) => _allReferencingOfferItems.length).map((category, idx) => (
               <li key={idx}>
-                <a href={`#${category.slug}`}><h2>{category.title}</h2></a>
+                <a href={`#${category.slug}`}>{category.title}</a>
               </li>
             ))}
           </ul>
@@ -44,7 +44,7 @@ export default async function Offer({ params }: LocaleParams) {
               <ul>
                 {items.map(({ title, content, gallery, backgroundImage, backgroundColor }, idx) => {
                   return (
-                    <li key={idx}>
+                    <li key={idx} className="grid">
                       <div className={s.content}>
                         <h3>{title}</h3>
                         <Content content={content} />

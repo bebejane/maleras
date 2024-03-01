@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <>
       <footer className={s.footer}>
-        Footer
+        What can we do for you? Contact us and let us know.
       </footer>
     </>
   );

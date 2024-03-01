@@ -4,13 +4,12 @@
   flex-direction: row;
   align-items: center;
   top: 0;
-  left: 0;
+  left: var(--outer-margin);
   z-index: var(--z-logo);
   height: var(--navbar-height);
 
   img {
     width: 60px;
-
   }
 }
 
@@ -18,16 +17,18 @@
   position: absolute;
   display: flex;
   flex-direction: row;
-  top: 0;
-  right: 0;
+  top: 0.3rem;
+  right: var(--outer-margin);
   z-index: var(--z-language);
   height: var(--navbar-height);
+  color: var(--gray);
 
   a {
     margin-right: 0.2em;
-
+    color: var(--gray);
+    font-size: 0.7rem;
     &.active {
-      font-weight: bold;
+      color: var(--black);
     }
   }
 }
@@ -40,10 +41,12 @@
   justify-content: flex-end;
   top: 0;
   right: 0;
-  background-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.8);
   width: 100%;
   height: var(--navbar-height);
   z-index: var(--z-navbar);
+  padding: var(--outer-margin);
+  backdrop-filter: blur(10px);
 
   ul {
     list-style: none;
@@ -51,7 +54,7 @@
     flex-direction: row;
 
     li {
-      margin-left: 1ch;
+      margin-left: 2em;
     }
   }
 }

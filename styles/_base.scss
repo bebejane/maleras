@@ -1,10 +1,11 @@
 :root {
 	--black: #161616;
-	--white: #fdf3e9;
+	--gray: #8a8a8a;
+	--white: #ffffff;
 	--red: #bf0000;
 
-	--outer-margin: 0;
-	--space: 2rem;
+	--outer-margin: 2rem;
+	--space: 3rem;
 	--space-small: 1rem;
 	--gutter: 1.5rem;
 	--navbar-height: 80px;
@@ -14,7 +15,6 @@
 
 	--z-navbar: 1000;
 	--z-logo: 2000;
-
 
 	@include mq($until: desktop) {
 		--outer-margin: 0;
@@ -31,11 +31,9 @@ body {
 	line-height: 1em;
 	color: var(--foreground);
 	background-color: var(--background);
-	font-family: $body-font;
 	-webkit-font-smoothing: antialiased;
 	font-feature-settings: "liga", "kern";
 }
-
 
 html {
 	box-sizing: border-box;
@@ -43,12 +41,6 @@ html {
 
 main {
 	min-height: calc(100vh + var(--navbar-height));
-}
-
-article {
-	margin-left: var(--outer-margin);
-	margin-right: var(--outer-margin);
-	width: calc(100% - (2 * var(--outer-margin)));
 }
 
 .grid {
@@ -94,7 +86,7 @@ figure {
 			margin-bottom: var(--space);
 		}
 
-		&>div {
+		& > div {
 			aspect-ratio: var(--apsect-ratio);
 			display: flex;
 			flex-direction: column;
@@ -111,7 +103,6 @@ figure {
 }
 
 .structured {
-
 	p,
 	blockquote,
 	ul,
@@ -218,11 +209,11 @@ p a {
 }
 
 button {
-
 	border: 0;
 
 	@include mq($from: desktop) {
-		&:hover {}
+		&:hover {
+		}
 	}
 
 	&[disabled] {
@@ -249,7 +240,8 @@ a {
 }
 
 figcaption {
-	@include mq($until: tablet) {}
+	@include mq($until: tablet) {
+	}
 
 	padding-top: 1em;
 }
@@ -258,7 +250,8 @@ figcaption {
 	padding-right: 1em;
 }
 
-hr {}
+hr {
+}
 
 input,
 textarea,
@@ -271,7 +264,8 @@ select {
 	font-family: $nav-font;
 	background-color: var(--background);
 
-	&:focus {}
+	&:focus {
+	}
 
 	&::placeholder {
 		color: var(--orange);

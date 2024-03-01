@@ -31,13 +31,13 @@ footer {
   font-size: 1.8rem;
 
   @include mq($from: desktop) {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
 }
 
 h1,
 h2 {
-  padding-bottom: 0.7em;
+  padding-bottom: 1rem;
 }
 
 .logo {
@@ -77,6 +77,11 @@ p {
     font-family: $headline-font;
     font-size: 0.95em;
   }
+}
+
+.intro,
+.intro p {
+  font-size: 1.2rem;
 }
 
 figcaption {

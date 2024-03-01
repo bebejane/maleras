@@ -1,13 +1,14 @@
 import createNextIntlPlugin from "next-intl/plugin";
+import path from "path";
 
 const withNextIntl = createNextIntlPlugin("./i18n");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	sassOptions: {
-		includePaths: ["./components", "./pages"],
+		includePaths: ["./components", "./pages", "./app"],
 		prependData: `
-    	@use "sass:math";
+			@use "sass:math";
     	@import "./styles/mediaqueries"; 
     	@import "./styles/fonts";
   	`,

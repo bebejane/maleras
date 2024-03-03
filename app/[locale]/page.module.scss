@@ -1,6 +1,8 @@
 .start {
   header {
-    padding: var(--outer-margin);
+    @include mq($from: desktop) {
+      padding: var(--outer-margin);
+    }
   }
 
   .about {
@@ -16,10 +18,15 @@
     }
     figure {
       grid-column: span 7;
-      display: flex;
-      aspect-ratio: 6 / 4;
 
+      & > div {
+        aspect-ratio: 6/4;
+        display: flex !important;
+      }
+
+      div,
       img {
+        display: flex;
         object-fit: cover;
       }
     }

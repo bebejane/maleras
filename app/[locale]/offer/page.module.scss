@@ -6,17 +6,24 @@
     align-items: center;
 
     section {
-      display: flex;
       padding: var(--outer-margin);
       color: var(--white);
+      padding-top: 5rem;
+      @include mq($from: desktop) {
+        display: flex;
+      }
 
       h1 {
-        width: 30%;
+        @include mq($from: desktop) {
+          width: 30%;
+        }
       }
 
       p {
-        width: 70%;
-        padding-right: 10%;
+        @include mq($from: desktop) {
+          width: 70%;
+          padding-right: 10%;
+        }
       }
     }
 
@@ -45,10 +52,29 @@
 
   nav {
     position: sticky;
-    top: calc(var(--navbar-height) + var(--space));
+    top: calc(var(--navbar-height));
     left: var(--outer-margin);
     z-index: 1000000;
     margin-left: var(--outer-margin);
+
+    @include mq($until: desktop) {
+      ul {
+        padding-top: var(--outer-margin);
+        background-color: var(--white);
+        margin-left: calc(-1 * var(--outer-margin));
+        padding-left: var(--outer-margin);
+        display: flex;
+        flex-direction: row;
+        li {
+          padding-right: 1rem;
+        }
+      }
+    }
+
+    @include mq($from: desktop) {
+      top: calc(var(--navbar-height) + var(--space));
+    }
+
     li {
       list-style: none;
       padding-bottom: 1rem;
@@ -104,7 +130,7 @@
           object-fit: cover;
           z-index: -1;
           grid-column: span 12;
-          opacity: 0.5;
+          opacity: 0.4;
         }
       }
     }

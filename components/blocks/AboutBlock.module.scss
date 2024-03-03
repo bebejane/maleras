@@ -5,13 +5,15 @@
   }
 
   &:nth-of-type(even) {
-    .text {
-      order: 1;
-      padding-left: 1rem;
-    }
-    .image,
-    .video {
-      order: -1;
+    @include mq($from: desktop) {
+      .text {
+        order: 1;
+        padding-left: 1rem;
+      }
+      .image,
+      .video {
+        order: -1;
+      }
     }
   }
 

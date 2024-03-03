@@ -85,7 +85,11 @@ p {
 
 .intro,
 .intro p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+
+  @include mq($from: desktop) {
+    font-size: 1.2rem;
+  }
 }
 
 figcaption {
@@ -103,8 +107,12 @@ figcaption {
 nav,
 .nav {
   font-family: $headline-font;
-  font-size: 0.9rem;
   text-transform: uppercase;
+  font-size: 0.8rem;
+
+  @include mq($from: desktop) {
+    font-size: 0.9rem;
+  }
 }
 
 strong {

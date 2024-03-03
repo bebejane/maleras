@@ -26,6 +26,7 @@ export default function NavBar({ locale }: Props) {
           <li>{t('contact')}</li>
         </ul>
         <nav className={s.language}>
+          <span>|</span>
           {locales.map((l, idx) =>
             <Link
               key={l}

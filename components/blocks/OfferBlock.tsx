@@ -8,6 +8,7 @@ import { Image } from 'react-datocms'
 import { Link } from '@i18n/navigation'
 import Content from '@components/Content';
 import { Swiper as SwiperType } from 'swiper/types';
+import cn from 'classnames';
 
 export type LayoutProps = { data: OfferBlockRecord }
 
@@ -17,7 +18,7 @@ export default function OfferBlock({ data: { title, text, categories } }: Layout
 	const [index, setIndex] = useState(0)
 
 	return (
-		<section className={s.offer}>
+		<section className={cn(s.offer, "grid")}>
 			<div className={s.offers}>
 				<h2>{title}</h2>
 				<Content content={text} />
@@ -25,12 +26,12 @@ export default function OfferBlock({ data: { title, text, categories } }: Layout
 					{categories.map(({ title, slug }, i) => (
 						<li key={i} className={i === index ? s.active : undefined} onMouseEnter={() => swiperRef.current.slideTo(i)}>
 							<Link href={{ pathname: `/offer`, hash: slug }}>
-								{title}
+								<span className="nav">{title}</span>
 							</Link>
 						</li>
 					))}
 				</ul>
-				<Link href={`/offer`}>Read more</Link>
+				<Link className="button nav" href={`/offer`}>Read more</Link>
 			</div>
 			<div className={s.gallery}>
 				<Swiper

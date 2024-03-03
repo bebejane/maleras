@@ -2,6 +2,23 @@
   header {
     position: relative;
     min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+    section {
+      display: flex;
+      padding: var(--outer-margin);
+      color: var(--white);
+
+      h1 {
+        width: 30%;
+      }
+
+      p {
+        width: 70%;
+        padding-right: 10%;
+      }
+    }
 
     figure {
       position: absolute;
@@ -11,10 +28,15 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.5;
+      background: black;
+
+      & > div {
+        opacity: 0.3;
+      }
 
       .image {
         max-height: 100vh;
+        min-height: 100vh;
         width: 100%;
         object-fit: cover;
       }
@@ -51,6 +73,10 @@
         .content {
           grid-column-start: 3;
           grid-column-end: 7;
+
+          p {
+            padding-right: var(--gutter);
+          }
         }
 
         .gallery {

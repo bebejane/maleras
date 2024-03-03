@@ -1,1 +1,27 @@
-.start {}
+.start {
+  header {
+    padding: var(--outer-margin);
+  }
+
+  .about {
+    padding-top: var(--space);
+    padding-bottom: var(--space);
+    padding-left: var(--outer-margin);
+    padding-right: var(--outer-margin);
+    color: var(--white);
+    background-color: black;
+
+    header {
+      grid-column: span 5;
+    }
+    figure {
+      grid-column: span 7;
+      display: flex;
+      aspect-ratio: 6 / 4;
+
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+}

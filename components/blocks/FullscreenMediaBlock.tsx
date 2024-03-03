@@ -11,8 +11,8 @@ export default function FullscreenMediaBlock({ data: { title, text, media } }: L
 	return (
 		<section className={s.fullscreenMedia}>
 			<div className={s.text}>
-				<h2>{title}</h2>
-				<p>{text}</p>
+				<h1>{title}</h1>
+				<h2>{text}</h2>
 			</div>
 			{media.responsiveImage ?
 				<figure className={s.image}>

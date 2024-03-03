@@ -9,19 +9,18 @@
   height: var(--navbar-height);
 
   img {
-    width: 55px;
+    width: 3.5rem;
   }
 }
 
 .language {
-  position: absolute;
   display: flex;
   flex-direction: row;
-  top: 0.3rem;
-  right: var(--outer-margin);
   z-index: var(--z-language);
   height: var(--navbar-height);
   color: var(--gray);
+  padding-left: 1rem;
+  align-items: center;
 
   a {
     margin-right: 0.2em;
@@ -41,17 +40,26 @@
   justify-content: flex-end;
   top: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
   height: var(--navbar-height);
   z-index: var(--z-navbar);
   padding: var(--outer-margin);
   backdrop-filter: blur(10px);
 
+  &.invert {
+    filter: invert(1);
+
+    .logo img {
+      filter: invert(1);
+    }
+  }
+
   ul {
     list-style: none;
     display: flex;
     flex-direction: row;
+    padding-right: 1rem;
 
     li {
       margin-left: 2em;

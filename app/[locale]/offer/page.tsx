@@ -21,8 +21,10 @@ export default async function Offer({ params }: LocaleParams) {
     <>
       <article className={cn(s.offer)}>
         <header>
-          <h1>{offer.title}</h1>
-          <Content content={offer.content} />
+          <section>
+            <h1>{offer.title}</h1>
+            <Content content={offer.content} className="intro" />
+          </section>
           {offer.image &&
             <figure>
               <Image data={offer.image.responsiveImage} pictureClassName={s.image} />

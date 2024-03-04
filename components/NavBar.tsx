@@ -13,13 +13,6 @@ export default function NavBar({ locale, contact }: Props) {
 
   const m = useMessages()
 
-  return (
-    <>
-      <Link href="/" className={s.logo}>
-        <img src="/images/logo.png" alt="logo" />
-      </Link>
-      <NavBarMenu locale={locale} messages={m.NavBar} contact={contact} />
-    </>
-  );
+  return <NavBarMenu locale={locale} messages={m.NavBar} contact={contact} />
 }
 

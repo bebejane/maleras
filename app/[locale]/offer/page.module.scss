@@ -9,6 +9,7 @@
       padding: var(--outer-margin);
       color: var(--white);
       padding-top: 5rem;
+
       @include mq($from: desktop) {
         display: flex;
       }
@@ -37,7 +38,7 @@
       z-index: -1;
       background: black;
 
-      & > div {
+      &>div {
         opacity: 0.3;
       }
 
@@ -47,37 +48,6 @@
         width: 100%;
         object-fit: cover;
       }
-    }
-  }
-
-  nav {
-    position: sticky;
-    top: calc(var(--navbar-height));
-    left: var(--outer-margin);
-    z-index: 1000000;
-    margin-left: var(--outer-margin);
-
-    @include mq($until: desktop) {
-      ul {
-        padding-top: var(--outer-margin);
-        background-color: var(--white);
-        margin-left: calc(-1 * var(--outer-margin));
-        padding-left: var(--outer-margin);
-        display: flex;
-        flex-direction: row;
-        li {
-          padding-right: 1rem;
-        }
-      }
-    }
-
-    @include mq($from: desktop) {
-      top: calc(var(--navbar-height) + var(--space));
-    }
-
-    li {
-      list-style: none;
-      padding-bottom: 1rem;
     }
   }
 
@@ -92,7 +62,7 @@
         padding-bottom: var(--space);
         position: relative;
 
-        > div {
+        >div {
           flex: 0 0 50%;
         }
 

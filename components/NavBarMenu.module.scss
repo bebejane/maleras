@@ -1,3 +1,22 @@
+.logo {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  top: 0.2rem;
+  left: var(--outer-margin);
+  z-index: var(--z-logo);
+  height: var(--navbar-height);
+
+  img {
+    width: 2.5rem;
+
+    @include mq($from: desktop) {
+      width: 3.5rem;
+    }
+  }
+}
+
 .navbar {
   position: fixed;
   display: flex;
@@ -16,14 +35,6 @@
     padding: var(--outer-margin);
     height: var(--navbar-height);
     backdrop-filter: blur(10px);
-
-    &.invert {
-      filter: invert(1);
-
-      .logo img {
-        filter: invert(1);
-      }
-    }
 
     ul {
       list-style: none;
@@ -92,4 +103,8 @@
 
   .info {}
 
+}
+
+.invert {
+  filter: invert(1);
 }

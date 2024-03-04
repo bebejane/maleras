@@ -10,72 +10,9 @@
 
   img {
     width: 2.5rem;
+
     @include mq($from: desktop) {
       width: 3.5rem;
-    }
-  }
-}
-
-.language {
-  display: flex;
-  flex-direction: row;
-  z-index: var(--z-language);
-  height: var(--navbar-height);
-  color: var(--gray);
-  align-items: center;
-
-  @include mq($until: desktop) {
-    display: none;
-  }
-  span {
-    padding-right: 2rem;
-    padding-left: 1rem;
-  }
-
-  a {
-    margin-right: 0.2em;
-    color: var(--gray);
-    //font-size: 0.7rem;
-    &.active {
-      color: var(--black);
-    }
-  }
-}
-
-.navbar {
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  top: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  width: 100%;
-  height: var(--navbar-height);
-  z-index: var(--z-navbar);
-  padding: var(--outer-margin);
-  backdrop-filter: blur(10px);
-
-  &.invert {
-    filter: invert(1);
-
-    .logo img {
-      filter: invert(1);
-    }
-  }
-
-  ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    padding-right: 1rem;
-
-    li {
-      margin-left: 1em;
-      @include mq($from: desktop) {
-        margin-left: 2em;
-      }
     }
   }
 }

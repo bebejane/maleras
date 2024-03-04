@@ -12,13 +12,14 @@ import cn from 'classnames';
 
 export type LayoutProps = { data: OfferBlockRecord }
 
-export default function OfferBlock({ data: { title, text, categories } }: LayoutProps) {
+export default function OfferBlock({ data: { title, text, categories, background } }: LayoutProps) {
 
 	const swiperRef = useRef<SwiperType | null>(null)
 	const [index, setIndex] = useState(0)
 
 	return (
 		<section className={cn(s.offer, "grid")}>
+			{background?.responsiveImage && <Image data={background.responsiveImage} className={s.background} />}
 			<div className={s.offers}>
 				<h2>{title}</h2>
 				<Content content={text} />

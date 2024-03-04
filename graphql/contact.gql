@@ -1,6 +1,15 @@
-query Contact($siteId: String) {
-	contact(filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }) {
+query Contact($siteId: String, $locale: SiteLocale = sv) {
+	contact(
+		locale: $locale
+		filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }
+	) {
 		id
+		address
+		text {
+			links
+			blocks
+			value
+		}
 		email
 		phone
 	}

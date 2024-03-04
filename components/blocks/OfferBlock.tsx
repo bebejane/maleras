@@ -24,7 +24,7 @@ export default function OfferBlock({ data: { title, text, categories, background
 			{background?.responsiveImage && <Image data={background.responsiveImage} className={s.background} />}
 			<div className={s.offers}>
 				<h2>{title}</h2>
-				<p>{text}</p>
+				<p className="intro">{text}</p>
 				<ul>
 					{categories.map(({ title, slug }, i) => (
 						<li key={i} className={i === index ? s.active : undefined} onMouseEnter={() => swiperRef.current.slideTo(i)}>

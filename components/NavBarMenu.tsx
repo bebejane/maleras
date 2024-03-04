@@ -58,12 +58,12 @@ export default function NavBarMenu({ messages, locale, contact }: Props) {
         </nav>
         <section
           ref={contactRef}
-          className={cn(s.contact, inverted && s.invert)}
+          className={cn(s.contact, inverted && s.invert, "grid")}
           style={{ maxHeight: showContact ? contactRef.current?.scrollHeight : 0 }}
         >
-          <h3>Contact</h3>
+          <h1>Contact</h1>
           <div className={s.info}>
-            <Content content={contact?.text} />
+            <Content className="intro" content={contact?.text} />
           </div>
         </section>
       </div>

@@ -93,18 +93,30 @@
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.2s ease-in-out;
+  padding: var(--outer-margin);
 
-  h3,
+  h1,
   .info {
-    padding: var(--outer-margin);
+    //padding: var(--outer-margin);
   }
 
-  h3 {}
+  h1 {
+    grid-column: span 5;
+  }
 
-  .info {}
-
+  .info {
+    grid-column: span 7;
+  }
 }
 
 .invert {
-  filter: invert(1);
+  color: var(--white);
+  backdrop-filter: none !important;
+  background-color: black;
+  a {
+    color: white;
+  }
+  img {
+    filter: invert(1);
+  }
 }

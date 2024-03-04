@@ -10,7 +10,12 @@ export default function Footer() {
   return (
     <>
       <footer className={s.footer}>
-        What can we do for you? Contact us and let us know.
+        <span>
+          What can we do for you? Contact us and let us know.
+        </span>
+        <figure>
+          <img src="/images/hovlev.png" alt="logo" />
+        </figure>
       </footer>
     </>
   );

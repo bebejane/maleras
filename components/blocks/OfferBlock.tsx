@@ -2,12 +2,12 @@
 
 import s from './OfferBlock.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from "swiper";
+import { Autoplay, EffectFade, } from "swiper";
 import 'swiper/css';
+import "swiper/css/effect-fade";
 import React, { useRef, useState } from 'react'
 import { Image } from 'react-datocms'
 import { Link } from '@i18n/navigation'
-import Content from '@components/Content';
 import { Swiper as SwiperType } from 'swiper/types';
 
 import cn from 'classnames';
@@ -41,8 +41,9 @@ export default function OfferBlock({ data: { title, text, categories, background
 					spaceBetween={0}
 					slidesPerView={1}
 					initialSlide={0}
+					effect={'fade'}
 					autoplay={{ delay: 2000, disableOnInteraction: true }}
-					modules={[Autoplay]}
+					modules={[Autoplay, EffectFade]}
 					onSlideChange={() => setIndex(swiperRef.current?.activeIndex || 0)}
 					onSwiper={(swiper) => swiperRef.current = swiper}
 				>

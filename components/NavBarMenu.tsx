@@ -7,7 +7,7 @@ import cn from 'classnames'
 import s from './NavBarMenu.module.scss'
 import Content from "./Content";
 import { usePathname } from '@i18n/navigation';
-
+import { useStore, shallow } from "@lib/store";
 
 export type Props = {
   messages: any
@@ -17,7 +17,7 @@ export type Props = {
 
 export default function NavBarMenu({ messages, locale, contact }: Props) {
 
-  const [showContact, setShowContact] = useState(false)
+  const [showContact, setShowContact] = useStore(state => [state.showContact, state.setShowContact], shallow)
   const contactRef = useRef<HTMLElement | null>(null)
   const pathname = usePathname()
   const { scrolledPosition } = useScrollInfo()

@@ -16,7 +16,7 @@ export default function StartAboutBlock({ data: { headline, text, image, backgro
 			<header>
 				<h1>{headline}</h1>
 				<p className="intro" >{text}</p>
-				<Link className="button nav" href={`/offer`}>Read more</Link>
+				<Link className="button nav" href={`/about`}>Read more</Link>
 			</header>
 			{background && <Image data={background.responsiveImage} className={s.background} />}
 		</section>

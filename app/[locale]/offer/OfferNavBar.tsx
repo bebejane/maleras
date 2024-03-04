@@ -23,10 +23,10 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
     const observer = new IntersectionObserver((entries) => {
       const mostVisible = entries.reduce((prev, current) => (prev.intersectionRatio > current.intersectionRatio ? prev : current));
 
-      if (mostVisible.isIntersecting) {
+      if (mostVisible.isIntersecting && !isScrolling.current) {
         setCurrentSlug(mostVisible.target.id);
       }
-    }, { threshold: 0.2 });
+    }, { threshold: 0.5 });
 
     Array.from(offerElements).forEach((el) => observer.observe(el));
 
@@ -37,12 +37,19 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
 
   }, [])
 
+  const handleClick = (e: React.MouseEvent) => {
+    const id = (e.target as HTMLAnchorElement).href?.split('#')[1];
+    isScrolling.current = true;
+    setCurrentSlug(id);
+    setTimeout(() => isScrolling.current = false, 1000);
+  }
+
   return (
     <nav className={s.offerNavBar}>
       <ul>
         {allOfferCategories.filter(({ _allReferencingOfferItems }) => _allReferencingOfferItems.length).map((category, idx) => (
-          <li key={idx}>
-            <a className={cn(currentSlug === category.slug && s.selected)} href={`#${category.slug}`}>
+          <li key={idx} className={cn(currentSlug === category.slug && s.selected)}>
+            <a href={`#${category.slug}`} onClick={handleClick}>
               {category.title}
             </a>
           </li>

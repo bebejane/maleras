@@ -4,31 +4,4 @@
       padding: var(--outer-margin);
     }
   }
-
-  .about {
-    padding-top: var(--space);
-    padding-bottom: var(--space);
-    padding-left: var(--outer-margin);
-    padding-right: var(--outer-margin);
-    color: var(--white);
-    background-color: black;
-
-    header {
-      grid-column: span 5;
-    }
-    figure {
-      grid-column: span 7;
-
-      & > div {
-        aspect-ratio: 6/4;
-        display: flex !important;
-      }
-
-      div,
-      img {
-        display: flex;
-        object-fit: cover;
-      }
-    }
-  }
 }

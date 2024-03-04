@@ -23,8 +23,7 @@ h5 {
 }
 
 h1,
-h2,
-footer {
+h2 {
   font-weight: normal;
   line-height: 1.25em;
   font-family: $headline-font;
@@ -32,6 +31,17 @@ footer {
 
   @include mq($from: desktop) {
     font-size: 2.4rem;
+  }
+}
+
+footer {
+  font-weight: normal;
+  line-height: 1.25em;
+  font-family: $headline-font;
+  font-size: 1.6rem;
+
+  @include mq($from: desktop) {
+    font-size: 2rem;
   }
 }
 

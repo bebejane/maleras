@@ -26,6 +26,7 @@
   width: 100%;
   z-index: var(--z-navbar);
   background-color: rgba(255, 255, 255, 0.9);
+  transition: all 3s ease-in-out;
 
   .menu {
     display: flex;
@@ -112,7 +113,7 @@
 .invert {
   color: var(--white);
   backdrop-filter: none !important;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.9);
   a {
     color: white;
   }

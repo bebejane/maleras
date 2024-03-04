@@ -1,5 +1,7 @@
 .footer {
   padding: var(--outer-margin);
+  padding-top: calc(var(--outer-margin) * 0.8);
+  padding-bottom: calc(var(--outer-margin) * 0.8);
   display: flex;
   justify-content: space-between;
   align-items: center;

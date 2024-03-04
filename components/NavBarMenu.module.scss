@@ -94,11 +94,11 @@
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.2s ease-in-out;
-  padding: var(--outer-margin);
+  //padding: var(--outer-margin);
 
   h1,
   .info {
-    //padding: var(--outer-margin);
+    padding: var(--outer-margin);
   }
 
   h1 {
@@ -114,9 +114,11 @@
   color: var(--white);
   backdrop-filter: none !important;
   background-color: rgba(0, 0, 0, 0.9);
+
   a {
     color: white;
   }
+
   img {
     filter: invert(1);
   }

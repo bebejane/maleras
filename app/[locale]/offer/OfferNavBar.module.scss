@@ -29,8 +29,8 @@
     list-style: none;
     padding-bottom: 1rem;
 
-    a {
-      &.selected {
+    &.selected {
+      a {
         font-weight: bold;
       }
     }

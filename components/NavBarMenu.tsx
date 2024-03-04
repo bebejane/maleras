@@ -30,7 +30,7 @@ export default function NavBarMenu({ messages, locale, contact }: Props) {
   return (
     <>
       <Link href="/" className={cn(s.logo, inverted && s.invert)}>
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/images/logo.svg" alt="logo" />
       </Link>
       <div className={s.navbar}>
         <nav className={cn(s.menu, inverted && s.invert)}>

@@ -25,6 +25,10 @@ query Start($siteId: String, $locale: SiteLocale = sv) {
 						...ImageFragment
 					}
 				}
+				text
+				background {
+					...ImageFragment
+				}
 			}
 		}
 		aboutHeadline

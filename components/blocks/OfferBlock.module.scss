@@ -1,7 +1,6 @@
 .offer {
   position: relative;
   min-height: 50vh;
-  background-color: var(--black);
   color: var(--white);
   padding-top: var(--space);
   padding-bottom: var(--space);
@@ -14,6 +13,7 @@
 
   .offers {
     grid-column: span 5;
+
     ul {
       list-style: none;
 
@@ -23,6 +23,7 @@
 
       li {
         padding-bottom: 1rem;
+
         &.active {
           padding-left: 1em;
         }
@@ -46,6 +47,21 @@
         max-height: 50vh;
         object-fit: cover;
       }
+    }
+  }
+
+  .background {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }

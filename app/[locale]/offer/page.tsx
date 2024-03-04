@@ -7,6 +7,7 @@ import { OfferDocument } from '@graphql';
 import { notFound } from 'next/navigation';
 import { Image } from 'react-datocms';
 import Content from '@components/Content';
+import OfferNavBar from './OfferNavBar';
 
 export default async function Offer({ params }: LocaleParams) {
 
@@ -19,7 +20,7 @@ export default async function Offer({ params }: LocaleParams) {
 
   return (
     <>
-      <article className={cn(s.offer)}>
+      <article id="offers" className={cn(s.offer)}>
         <header>
           <section>
             <h1>{offer.title}</h1>
@@ -31,15 +32,7 @@ export default async function Offer({ params }: LocaleParams) {
             </figure>
           }
         </header>
-        <nav>
-          <ul>
-            {allOfferCategories.filter(({ _allReferencingOfferItems }) => _allReferencingOfferItems.length).map((category, idx) => (
-              <li key={idx}>
-                <a href={`#${category.slug}`}>{category.title}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <OfferNavBar allOfferCategories={allOfferCategories} />
         {allOfferCategories.map(({ slug, _allReferencingOfferItems: items }, idx) => {
           return (
             <section key={idx} id={slug}>

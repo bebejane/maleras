@@ -2,12 +2,14 @@ import '@styles/index.scss'
 import { defaultLocale, locales } from '@i18n';
 import { unstable_setRequestLocale as setRequestLocale } from 'next-intl/server';
 import { apiQuery } from 'next-dato-utils/api';
-import { GlobalDocument } from "@graphql";
+import { DraftMode } from 'next-dato-utils/components';
+import { ContactDocument, GlobalDocument } from "@graphql";
 import { Metadata } from "next/types";
 import { Icon } from "next/dist/lib/metadata/types/metadata-types";
 
 import NavBar from '@components/NavBar';
 import Footer from '@components/Footer';
+
 
 export type LocaleParams = {
   params: {
@@ -29,16 +31,24 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   const locale = params?.locale ?? defaultLocale
   setRequestLocale(locale);
 
+  const { contact, draftUrl } = await apiQuery<ContactQuery, ContactQueryVariables>(ContactDocument, {
+    variables: { siteId: process.env.NEXT_PUBLIC_SITE_ID, locale: locale as SiteLocale },
+    tags: ['contact']
+  });
+
   return (
-    <html lang={locale}>
-      <body id="root">
-        <NavBar locale={locale} />
-        <main>
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
+    <>
+      <html lang={locale}>
+        <body id="root">
+          <NavBar locale={locale} contact={contact} />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </body>
+      </html>
+      <DraftMode url={draftUrl} tag={contact?.id} />
+    </>
   );
 }
 

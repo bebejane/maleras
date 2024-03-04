@@ -2,8 +2,6 @@ import s from './StartAboutBlock.module.scss'
 import React, { useRef } from 'react'
 import { Image } from 'react-datocms'
 import { Link } from '@i18n/navigation'
-import VideoPlayer from '@components/VideoPlayer'
-import Content from '../Content'
 import cn from 'classnames'
 
 export type Props = { data: StartAboutBlockRecord }

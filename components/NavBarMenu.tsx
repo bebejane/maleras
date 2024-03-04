@@ -66,6 +66,7 @@ export default function NavBarMenu({ messages, locale, contact }: Props) {
             <Content className="intro" content={contact?.text} />
           </div>
         </section>
+        <div className={cn(s.background, inverted && s.invert)}></div>
       </div>
     </>
   );

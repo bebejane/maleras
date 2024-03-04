@@ -30,15 +30,16 @@ query Start($siteId: String, $locale: SiteLocale = sv) {
 					...ImageFragment
 				}
 			}
-		}
-		aboutHeadline
-		aboutText {
-			links
-			blocks
-			value
-		}
-		aboutImage {
-			...ImageFragment
+			... on StartAboutBlockRecord {
+				headline
+				text
+				image {
+					...ImageFragment
+				}
+				background {
+					...ImageFragment
+				}
+			}
 		}
 		siteSelector {
 			siteId

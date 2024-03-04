@@ -44,11 +44,23 @@
       padding-right: 1rem;
 
       li {
-        margin-left: 1em;
+        padding-left: 1em;
         cursor: pointer;
 
         &.selected {
-          font-weight: bold;
+          //font-weight: bold;
+          &:before {
+            content: " ";
+            width: 0.3em;
+            height: 0.3em;
+            background-color: black;
+            position: absolute;
+            //left: 0.1em;
+            z-index: 1;
+            top: 2.6em;
+            margin-left: -0.8em;
+            transform: rotate(45deg);
+          }
         }
 
         @include mq($from: desktop) {
@@ -117,6 +129,10 @@
 
   a {
     color: white;
+  }
+
+  li.selected:before {
+    background-color: white !important;
   }
 
   img {

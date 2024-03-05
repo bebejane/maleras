@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  top: 0.2rem;
   left: var(--outer-margin);
   z-index: var(--z-logo);
   height: var(--navbar-height);
@@ -12,7 +11,7 @@
     width: 2.5rem;
 
     @include mq($from: desktop) {
-      width: 3.5rem;
+      width: 3.3rem;
     }
   }
 }
@@ -23,6 +22,7 @@
   width: 100%;
   height: var(--navbar-height);
   z-index: -1;
+  top: 0;
   backdrop-filter: blur(10px);
   transition: 1s opacity ease-in-out;
 }
@@ -43,7 +43,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    padding: var(--outer-margin);
+    padding-left: var(--outer-margin);
+    padding-right: var(--outer-margin);
     height: var(--navbar-height);
 
     ul {
@@ -66,7 +67,7 @@
             position: absolute;
             //left: 0.1em;
             z-index: 1;
-            top: 2.6em;
+            top: 2.5em;
             margin-left: -0.8em;
             transform: rotate(45deg);
           }

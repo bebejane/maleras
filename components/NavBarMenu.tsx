@@ -20,8 +20,8 @@ export default function NavBarMenu({ messages, locale, contact }: Props) {
   const [showContact, setShowContact] = useStore(state => [state.showContact, state.setShowContact], shallow)
   const contactRef = useRef<HTMLElement | null>(null)
   const pathname = usePathname()
-  const { scrolledPosition } = useScrollInfo()
-  const inverted = scrolledPosition === 0
+  const { scrolledPosition, viewportHeight } = useScrollInfo()
+  const inverted = scrolledPosition > viewportHeight && pathname !== '/'
 
   useEffect(() => {
     setShowContact(false)

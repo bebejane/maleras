@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, locales } from '@i18n/navigation'
 import { useScrollInfo } from 'next-dato-utils/hooks'
 import cn from 'classnames'
@@ -22,7 +22,7 @@ export default function NavBar({ locale, contact }: Props) {
   const contactRef = useRef<HTMLElement | null>(null)
   const pathname = usePathname()
   const { scrolledPosition, viewportHeight } = useScrollInfo()
-  const inverted = scrolledPosition < viewportHeight || pathname === '/'
+  const inverted = (scrolledPosition < viewportHeight || pathname === '/') && !showContact
 
   useEffect(() => {
     setShowContact(false)

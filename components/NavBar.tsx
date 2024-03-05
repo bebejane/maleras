@@ -6,7 +6,7 @@ import { useScrollInfo } from 'next-dato-utils/hooks'
 import cn from 'classnames'
 import s from './NavBar.module.scss'
 import Content from "./Content";
-import { usePathname } from '@i18n/navigation';
+import { usePathname, getPathname } from '@i18n/navigation';
 import { useStore, shallow } from "@lib/store";
 import { useTranslations } from "next-intl";
 
@@ -51,7 +51,7 @@ export default function NavBar({ locale, contact }: Props) {
             {locales.filter(l => l !== locale).map((l, idx) =>
               <Link
                 key={l}
-                href={'/'}
+                href={getPathname({ href: pathname, locale: l }) as ReturnType<typeof Link>['props']['href']}
                 locale={l}
               >{l}</Link>
             )}

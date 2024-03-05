@@ -2,10 +2,14 @@ import s from './page.module.scss'
 import cn from 'classnames';
 import { LocaleParams } from '@app/[locale]/layout';
 import { apiQuery } from 'next-dato-utils/api';
-import { DraftMode, Block } from 'next-dato-utils/components';
+import { DraftMode } from 'next-dato-utils/components';
 import { OfferDocument } from '@graphql';
 import { notFound } from 'next/navigation';
 import { Image } from 'react-datocms';
+import { locales, defaultLocale } from '@i18n';
+import { getPathname } from '@i18n/navigation';
+import { getTranslations } from 'next-intl/server';
+
 import Content from '@components/Content';
 import OfferNavBar from './OfferNavBar';
 
@@ -65,4 +69,21 @@ export default async function Offer({ params }: LocaleParams) {
       <DraftMode url={draftUrl} tag={offer?.id} />
     </>
   )
+}
+
+export async function generateMetadata({ params }: LocaleParams) {
+  const t = await getTranslations('NavBar');
+
+  const languages = {}
+  locales.forEach((l) =>
+    languages[l] = `${process.env.NEXT_PUBLIC_SITE_URL}/${l}${getPathname({ href: '/offer', locale: l })}`
+  )
+
+  return {
+    title: t('offer'),
+    alternates: {
+      canonical: getPathname({ href: "/offer", locale: defaultLocale }),
+      languages
+    }
+  }
 }

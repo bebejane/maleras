@@ -37,7 +37,7 @@ export default function NavBar({ locale, contact }: Props) {
         <nav className={cn(s.menu, inverted && s.invert)}>
           <ul>
             <li className={cn(pathname === '/offer' && !showContact && s.selected)}>
-              <Link href={`/offer`}>{t('our-offer')}</Link>
+              <Link href={`/offer`}>{t('offer')}</Link>
             </li>
             <li className={cn(pathname === '/about' && !showContact && s.selected)}>
               <Link href={`/about`}>{t('about')}</Link>

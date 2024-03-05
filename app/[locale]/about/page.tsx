@@ -10,7 +10,9 @@ import { notFound } from 'next/navigation';
 import { Image } from 'react-datocms';
 import VideoPlayer from '@components/VideoPlayer';
 import * as BlockCompoents from '@components/blocks';
-import Content from '@components/Content';
+import { getPathname } from '@i18n/navigation';
+import { defaultLocale, locales } from '@i18n';
+import { getTranslations } from 'next-intl/server';
 
 export default async function About({ params }: LocaleParams) {
 
@@ -46,4 +48,21 @@ export default async function About({ params }: LocaleParams) {
       <DraftMode url={draftUrl} tag={about?.id} />
     </>
   )
+}
+
+export async function generateMetadata({ params }: LocaleParams) {
+  const t = await getTranslations('NavBar');
+
+  const languages = {}
+  locales.forEach((l) =>
+    languages[l] = `${process.env.NEXT_PUBLIC_SITE_URL}/${l}${getPathname({ href: '/about', locale: l })}`
+  )
+
+  return {
+    title: t('about'),
+    alternates: {
+      canonical: getPathname({ href: "/about", locale: defaultLocale }),
+      languages
+    }
+  }
 }

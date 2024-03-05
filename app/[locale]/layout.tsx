@@ -1,5 +1,6 @@
 import '@styles/index.scss'
 import { defaultLocale, locales } from '@i18n';
+import { getPathname } from '@i18n/navigation';
 import { unstable_setRequestLocale as setRequestLocale } from 'next-intl/server';
 import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
@@ -81,9 +82,17 @@ export async function generateMetadata({ params }: LocaleParams) {
     generateTags: false
   });
 
+  const languages = {}
+  locales.forEach((l) => {
+    languages[l] = `${process.env.NEXT_PUBLIC_SITE_URL}/${l}${getPathname({ href: "/", locale: l })}`
+  })
+
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
-    alternates: { canonical: '/' },
+    alternates: {
+      canonical: '/',
+      languages
+    },
     title: {
       template: `${globalSeo?.siteName} — %s`,
       default: globalSeo?.siteName,

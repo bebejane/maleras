@@ -26,7 +26,7 @@ export default async function Start({ params }: LocaleParams) {
           <Block key={idx} components={BlockComponets} data={block} />
         )}
       </article>
-      <DraftMode url={draftUrl} tag={start?.id} />
+
     </>
   )
 }

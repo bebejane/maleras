@@ -36,7 +36,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
   const locale = params?.locale ?? defaultLocale
   setRequestLocale(locale);
 
-  const { contact, draftUrl } = await apiQuery<ContactQuery, ContactQueryVariables>(ContactDocument, {
+  const { contact } = await apiQuery<ContactQuery, ContactQueryVariables>(ContactDocument, {
     variables: { siteId: process.env.NEXT_PUBLIC_SITE_ID, locale: locale as SiteLocale },
     tags: ['contact']
   });
@@ -48,7 +48,6 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
           {children}
         </MainLayout>
       </html>
-      <DraftMode url={draftUrl} tag={contact?.id} />
     </>
   );
 }

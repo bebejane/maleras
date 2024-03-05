@@ -45,8 +45,8 @@ dependencies:
     specifier: github:bebejane/next-dato-utils
     version: github.com/bebejane/next-dato-utils/187c2085c0e78d280256b7ce96929bb1fc41818c(@datocms/cma-client-browser@3.1.2)(@datocms/cma-client-node@3.1.2)(@types/react-dom@18.2.19)(@types/react@18.2.56)(datocms-structured-text-utils@2.1.12)(graphql@16.8.1)(react-datocms@4.2.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.71.0)
   next-intl:
-    specifier: ^3.9.1
-    version: 3.9.1(next@14.2.0-canary.0)(react@18.2.0)
+    specifier: ^3.9.2
+    version: 3.9.2(next@14.2.0-canary.0)(react@18.2.0)
   nextjs-google-analytics:
     specifier: ^2.3.3
     version: 2.3.3(next@14.2.0-canary.0)(react@18.2.0)
@@ -87,8 +87,8 @@ dependencies:
     specifier: ^3.22.4
     version: 3.22.4
   zustand:
-    specifier: ^4.5.1
-    version: 4.5.1(@types/react@18.2.56)(react@18.2.0)
+    specifier: ^4.5.2
+    version: 4.5.2(@types/react@18.2.56)(react@18.2.0)
 
 devDependencies:
   '@graphql-codegen/cli':
@@ -5504,8 +5504,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /next-intl@3.9.1(next@14.2.0-canary.0)(react@18.2.0):
-    resolution: {integrity: sha512-1j+5lLTY5kHshqnVoeAep+gQO1xX1KlJU3irZkdCOhr0woo562qLKOsGGVh+7bB5luBMu9qQBQy7ZwNK81Z2Ig==}
+  /next-intl@3.9.2(next@14.2.0-canary.0)(react@18.2.0):
+    resolution: {integrity: sha512-I/E7fle1rZuNQWPCI/XZNGc75ZCVjzvE+62RRClB3EzJDTqjNXpjmZplXD4WQxQjJ2mBZ2aKgGjblRg52EKa0Q==}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -7355,8 +7355,8 @@ packages:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
 
-  /zustand@4.5.1(@types/react@18.2.56)(react@18.2.0):
-    resolution: {integrity: sha512-XlauQmH64xXSC1qGYNv00ODaQ3B+tNPoy22jv2diYiP4eoDKr9LA+Bh5Bc3gplTrFdb6JVI+N4kc1DZ/tbtfPg==}
+  /zustand@4.5.2(@types/react@18.2.56)(react@18.2.0):
+    resolution: {integrity: sha512-2cN1tPkDVkwCy5ickKrI7vijSjPksFRfqS6237NzT0vqSsztTNnQdHw9mmN7uBdk3gceVXU0a+21jFzFzAc9+g==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@types/react': '>=16.8'

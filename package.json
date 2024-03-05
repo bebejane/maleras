@@ -29,7 +29,7 @@
     "hamburger-react": "^2.5.0",
     "next": "14.2.0-canary.0",
     "next-dato-utils": "github:bebejane/next-dato-utils",
-    "next-intl": "^3.9.1",
+    "next-intl": "^3.9.2",
     "nextjs-google-analytics": "^2.3.3",
     "object.omit": "^3.0.0",
     "postmark": "^4.0.2",
@@ -43,7 +43,7 @@
     "sass": "^1.71.0",
     "swiper": "^8.4.7",
     "zod": "^3.22.4",
-    "zustand": "^4.5.1"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.2",

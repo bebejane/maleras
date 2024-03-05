@@ -3,7 +3,6 @@ import { defaultLocale, locales } from '@i18n';
 import { getPathname } from '@i18n/navigation';
 import { unstable_setRequestLocale as setRequestLocale } from 'next-intl/server';
 import { apiQuery } from 'next-dato-utils/api';
-import { DraftMode } from 'next-dato-utils/components';
 import { ContactDocument, GlobalDocument } from "@graphql";
 import { Metadata } from "next/types";
 import { Icon } from "next/dist/lib/metadata/types/metadata-types";
@@ -23,7 +22,7 @@ export type RootLayoutProps = {
   children: React.ReactNode,
   params: LocaleParams['params'],
 }
-export type MainLayoutProps = {
+export type BodyProps = {
   children: React.ReactNode,
   locale: string
   contact: ContactQuery['contact']
@@ -32,7 +31,6 @@ export type MainLayoutProps = {
 export const dynamic = 'force-static'
 
 export default async function RootLayout({ children, params }: RootLayoutProps) {
-
   const locale = params?.locale ?? defaultLocale
   setRequestLocale(locale);
 
@@ -42,17 +40,17 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
   });
 
   return (
-    <>
-      <html lang={locale}>
-        <MainLayout locale={locale} contact={contact}>
-          {children}
-        </MainLayout>
-      </html>
-    </>
+
+    <html lang={locale}>
+      <Body locale={locale} contact={contact}>
+        {children}
+      </Body>
+    </html>
+
   );
 }
 
-function MainLayout({ children, locale, contact }: MainLayoutProps) {
+function Body({ children, locale, contact }: BodyProps) {
   const messages = useMessages();
 
   return (
@@ -66,7 +64,6 @@ function MainLayout({ children, locale, contact }: MainLayoutProps) {
       </NextIntlClientProvider>
     </body>
   )
-
 }
 
 export function generateStaticParams() {
@@ -74,6 +71,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: LocaleParams) {
+
   params = Object.keys(params).length === 0 ? { locale: defaultLocale } : params
 
   const { site: { globalSeo, faviconMetaTags } } = await apiQuery<GlobalQuery, GlobalQueryVariables>(GlobalDocument, {

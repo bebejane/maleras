@@ -14,7 +14,7 @@ export default function StartAboutBlock({ data: { headline, text, image, backgro
 				<Image data={image.responsiveImage} className={s.image} />
 			</figure>
 			<header>
-				<h1>{headline}</h1>
+				<h2>{headline}</h2>
 				<p className="intro" >{text}</p>
 				<Link className="button nav" href={`/about`}>Read more</Link>
 			</header>

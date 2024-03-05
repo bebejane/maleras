@@ -1,7 +1,6 @@
 import s from './FullscreenMediaBlock.module.scss'
-import React, { useRef } from 'react'
+import React from 'react'
 import { Image } from 'react-datocms'
-import Link from 'next/link'
 import VideoPlayer from '@components/VideoPlayer'
 
 export type LayoutProps = { data: FullscreenMediaBlockRecord }

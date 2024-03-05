@@ -1,5 +1,5 @@
 import s from './StartAboutBlock.module.scss'
-import React, { useRef } from 'react'
+import React from 'react'
 import { Image } from 'react-datocms'
 import { Link } from '@i18n/navigation'
 import cn from 'classnames'

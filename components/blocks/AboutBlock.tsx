@@ -1,7 +1,6 @@
 import s from './AboutBlock.module.scss'
-import React, { useRef } from 'react'
+import React from 'react'
 import { Image } from 'react-datocms'
-import Link from 'next/link'
 import VideoPlayer from '@components/VideoPlayer'
 import Content from '../Content'
 import cn from 'classnames'

@@ -33,9 +33,9 @@ export default async function Offer({ params }: LocaleParams) {
           }
         </header>
         <OfferNavBar allOfferCategories={allOfferCategories} />
-        {allOfferCategories.map(({ slug, _allReferencingOfferItems: items }, idx) => {
+        {allOfferCategories.map(({ id, slug, _allReferencingOfferItems: items }, idx) => {
           return (
-            <section key={idx} id={slug}>
+            <section id={slug} key={idx} data-offer-id={id}>
               <ul>
                 {items.map(({ title, content, gallery, backgroundImage, backgroundColor }, idx) => {
                   return (

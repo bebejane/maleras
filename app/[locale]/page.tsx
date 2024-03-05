@@ -10,7 +10,7 @@ import * as BlockComponets from '@components/blocks';
 
 export default async function Start({ params }: LocaleParams) {
 
-  setRequestLocale(params.locale);
+  //setRequestLocale(params.locale);
 
   const { start, draftUrl } = await apiQuery<StartQuery, StartQueryVariables>(StartDocument, {
     variables: { siteId: process.env.NEXT_PUBLIC_SITE_ID, locale: params.locale as SiteLocale },
@@ -26,7 +26,7 @@ export default async function Start({ params }: LocaleParams) {
           <Block key={idx} components={BlockComponets} data={block} />
         )}
       </article>
-
+      <DraftMode url={draftUrl} tag={start?.id} />
     </>
   )
 }

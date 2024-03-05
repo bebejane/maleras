@@ -1,17 +1,18 @@
 import { MetadataRoute } from 'next'
-
-const staticRoutes: MetadataRoute.Sitemap = [
-  {
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/`,
-    lastModified: new Date(),
-    changeFrequency: 'daily',
-    priority: 1,
-  }
-]
+import { getPathname, locales, pathnames } from '../i18n/navigation'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
-  return [
-    ...staticRoutes
-  ]
+  //@ts-ignore
+  const staticRoutes: MetadataRoute.Sitemap = locales.map((locale) => Object.keys(pathnames).map((href) => {
+    return {
+      //@ts-ignore
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}${getPathname({ href, locale })}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 1,
+    }
+  })).flat()
+
+  return staticRoutes
 }

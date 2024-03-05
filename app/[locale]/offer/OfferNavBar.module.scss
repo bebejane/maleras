@@ -1,6 +1,5 @@
 .offerNavBar {
   position: sticky;
-  margin-top: var(--outer-margin);
   top: calc(var(--outer-margin) + var(--navbar-height));
   left: var(--outer-margin);
   z-index: var(--z-sidenavbar);
@@ -22,6 +21,7 @@
   }
 
   @include mq($from: desktop) {
+    margin-top: var(--outer-margin);
     top: calc(var(--navbar-height) + var(--space));
   }
 

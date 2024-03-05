@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react';
+import useIsDesktop from '@lib/hooks/useIsDesktop';
 import s from './OfferNavBar.module.scss'
 import cn from 'classnames';
 
@@ -12,6 +13,8 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
 
   const [currentSlug, setCurrentSlug] = useState<string | null>(null);
   const isScrolling = useRef(false);
+  const isDesktop = useIsDesktop();
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
 
@@ -37,6 +40,13 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
 
   }, [])
 
+  useEffect(() => {
+    // Set the margin-top of the first offer section to the height of the navbar, sticky stuff
+    const firstOfferSection = document.getElementById('offers')?.querySelectorAll('section[data-offer-id]')[0] as HTMLDivElement
+    firstOfferSection.style.marginTop = isDesktop ? `calc(-1 * calc(${ref.current?.offsetHeight}px + var(--outer-margin)))` : 'unset'
+  }, [isDesktop])
+
+
   const handleClick = (e: React.MouseEvent) => {
     const id = (e.target as HTMLAnchorElement).href?.split('#')[1];
     isScrolling.current = true;
@@ -45,7 +55,7 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
   }
 
   return (
-    <nav className={s.offerNavBar}>
+    <nav id="offer-navbar" className={s.offerNavBar} ref={ref}>
       <ul>
         {allOfferCategories.filter(({ _allReferencingOfferItems }) => _allReferencingOfferItems.length).map((category, idx) => (
           <li key={idx} className={cn(currentSlug === category.slug && s.selected)}>

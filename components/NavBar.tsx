@@ -1,8 +1,14 @@
-import React from "react";
-import { Link } from '@i18n/navigation'
+'use client'
+
+import React, { useEffect, useRef, useState } from "react";
+import { Link, locales } from '@i18n/navigation'
+import { useScrollInfo } from 'next-dato-utils/hooks'
+import cn from 'classnames'
 import s from './NavBar.module.scss'
-import { useMessages, useTranslations } from "next-intl";
-import NavBarMenu from "./NavBarMenu";
+import Content from "./Content";
+import { usePathname } from '@i18n/navigation';
+import { useStore, shallow } from "@lib/store";
+import { useTranslations } from "next-intl";
 
 export type Props = {
   locale: string
@@ -11,8 +17,58 @@ export type Props = {
 
 export default function NavBar({ locale, contact }: Props) {
 
-  const m = useMessages()
+  const t = useTranslations('NavBar')
+  const [showContact, setShowContact] = useStore(state => [state.showContact, state.setShowContact], shallow)
+  const contactRef = useRef<HTMLElement | null>(null)
+  const pathname = usePathname()
+  const { scrolledPosition, viewportHeight } = useScrollInfo()
+  const inverted = scrolledPosition < viewportHeight || pathname === '/'
 
-  return <NavBarMenu locale={locale} messages={m.NavBar} contact={contact} />
+  useEffect(() => {
+    setShowContact(false)
+  }, [pathname])
+
+  return (
+    <>
+      <Link href="/" className={cn(s.logo, inverted && s.invert)}>
+        <img src="/images/logo.svg" alt="logo" />
+      </Link>
+      <div className={s.navbar}>
+        <nav className={cn(s.menu, inverted && s.invert)}>
+          <ul>
+            <li className={cn(pathname === '/offer' && !showContact && s.selected)}>
+              <Link href={`/offer`}>{t('our-offer')}</Link>
+            </li>
+            <li className={cn(pathname === '/about' && !showContact && s.selected)}>
+              <Link href={`/about`}>{t('about')}</Link>
+            </li>
+            <li className={cn(showContact && s.selected)} onClick={() => setShowContact(!showContact)}>
+              {t('contact')}
+            </li>
+          </ul>
+          <nav className={s.language}>
+            <span>|</span>
+            {locales.filter(l => l !== locale).map((l, idx) =>
+              <Link
+                key={l}
+                href={'/'}
+                locale={l}
+              >{l}</Link>
+            )}
+          </nav>
+        </nav>
+        <section
+          ref={contactRef}
+          className={cn(s.contact, inverted && s.invert, "grid")}
+          style={{ maxHeight: showContact ? contactRef.current?.scrollHeight : 0 }}
+        >
+          <h1>Contact</h1>
+          <div className={s.info}>
+            <Content className="intro" content={contact?.text} />
+          </div>
+        </section>
+        <div className={cn(s.background, inverted && s.invert)}></div>
+      </div>
+    </>
+  );
 }
-

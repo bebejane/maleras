@@ -3,10 +3,13 @@ import React, { useRef } from 'react'
 import { Image } from 'react-datocms'
 import { Link } from '@i18n/navigation'
 import cn from 'classnames'
+import { useTranslations } from 'next-intl'
 
 export type Props = { data: StartAboutBlockRecord }
 
 export default function StartAboutBlock({ data: { headline, text, image, background } }: Props) {
+
+	const t = useTranslations('General')
 
 	return (
 		<section className={cn(s.about, "grid")}>
@@ -16,7 +19,7 @@ export default function StartAboutBlock({ data: { headline, text, image, backgro
 			<header>
 				<h2>{headline}</h2>
 				<p className="intro" >{text}</p>
-				<Link className="button nav" href={`/about`}>Read more</Link>
+				<Link className="button nav" href={`/about`}>{t('read-more')}</Link>
 			</header>
 			{background && <Image data={background.responsiveImage} className={s.background} />}
 		</section>

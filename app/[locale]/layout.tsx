@@ -9,7 +9,7 @@ import { Icon } from "next/dist/lib/metadata/types/metadata-types";
 
 import NavBar from '@components/NavBar';
 import Footer from '@components/Footer';
-
+import { NextIntlClientProvider, useMessages } from 'next-intl';
 
 export type LocaleParams = {
   params: {
@@ -18,15 +18,19 @@ export type LocaleParams = {
   searchParams?: any
 }
 
-export type LayoutProps = {
+export type RootLayoutProps = {
   children: React.ReactNode,
   params: LocaleParams['params'],
-  backgroundColor?: string,
+}
+export type MainLayoutProps = {
+  children: React.ReactNode,
+  locale: string
+  contact: ContactQuery['contact']
 }
 
 export const dynamic = 'force-static'
 
-export default async function RootLayout({ children, params }: LayoutProps) {
+export default async function RootLayout({ children, params }: RootLayoutProps) {
 
   const locale = params?.locale ?? defaultLocale
   setRequestLocale(locale);
@@ -39,17 +43,30 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   return (
     <>
       <html lang={locale}>
-        <body id="root">
-          <NavBar locale={locale} contact={contact} />
-          <main>
-            {children}
-          </main>
-          <Footer />
-        </body>
+        <MainLayout locale={locale} contact={contact}>
+          {children}
+        </MainLayout>
       </html>
       <DraftMode url={draftUrl} tag={contact?.id} />
     </>
   );
+}
+
+function MainLayout({ children, locale, contact }: MainLayoutProps) {
+  const messages = useMessages();
+
+  return (
+    <body id="root">
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <NavBar locale={locale} contact={contact} />
+        <main>
+          {children}
+        </main>
+        <Footer />
+      </NextIntlClientProvider>
+    </body>
+  )
+
 }
 
 export function generateStaticParams() {

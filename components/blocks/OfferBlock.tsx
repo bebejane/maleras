@@ -11,11 +11,13 @@ import { Link } from '@i18n/navigation'
 import { Swiper as SwiperType } from 'swiper/types';
 
 import cn from 'classnames';
+import { useTranslations } from 'next-intl';
 
 export type LayoutProps = { data: OfferBlockRecord }
 
 export default function OfferBlock({ data: { title, text, categories, background } }: LayoutProps) {
 
+	const t = useTranslations('General')
 	const swiperRef = useRef<SwiperType | null>(null)
 	const [index, setIndex] = useState(0)
 
@@ -34,7 +36,7 @@ export default function OfferBlock({ data: { title, text, categories, background
 						</li>
 					))}
 				</ul>
-				<Link className="button nav" href={`/offer`}>Read more</Link>
+				<Link className="button nav" href={`/offer`}>{t('read-more')}</Link>
 			</div>
 			<div className={s.gallery}>
 				<Swiper

@@ -43,7 +43,7 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
   useEffect(() => {
     // Set the margin-top of the first offer section to the height of the navbar, sticky stuff
     const firstOfferSection = document.getElementById('offers')?.querySelectorAll('section[data-offer-id]')[0] as HTMLDivElement
-    firstOfferSection.style.marginTop = isDesktop ? `calc(-1 * calc(${ref.current?.offsetHeight}px + var(--outer-margin)))` : 'unset'
+    firstOfferSection.style.marginTop = isDesktop ? `calc(-1 * calc(${ref.current?.offsetHeight}px + var(--space)))` : 'unset'
   }, [isDesktop])
 
 

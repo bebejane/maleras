@@ -25,7 +25,7 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
 
     const offers = document.getElementById('offers');
 
-    if (!offers) return
+    if (!offers || isScrolling.current) return
 
     const offerElements = offers.querySelectorAll('section[data-offer-id]');
     let mostVisible = offerElements[0];

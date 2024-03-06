@@ -55,7 +55,11 @@
     scroll-margin-top: var(--navbar-height);
 
     @include mq($until: desktop) {
-      scroll-margin-top: calc(var(--navbar-height) + 1em);
+      scroll-margin-top: calc(var(--navbar-height) + calc(1em + var(--space)));
+
+      &:first-of-type {
+        scroll-margin-top: calc(var(--navbar-height) + calc(2em + var(--space)));
+      }
     }
 
     ul {

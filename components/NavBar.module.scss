@@ -68,6 +68,7 @@
             top: 2.5em;
             margin-left: -0.8em;
             transform: rotate(45deg);
+
             @include mq($from: wide) {
               top: 2.05em;
             }
@@ -130,6 +131,13 @@
 
   .info {
     grid-column: span 7;
+
+    .sellers {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+    }
+
   }
 }
 

@@ -4,13 +4,14 @@ query Contact($siteId: String, $locale: SiteLocale = sv) {
 		filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }
 	) {
 		id
-		address
+		title
 		text {
 			links
 			blocks
 			value
 		}
 		email
-		phone
+		seller1
+		seller2
 	}
 }

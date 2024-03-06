@@ -65,6 +65,11 @@ export default function NavBar({ locale, contact }: Props) {
           <h1>Contact</h1>
           <div className={s.info}>
             <Content className="intro" content={contact?.text} />
+            <ul className={s.sellers}>
+              {[contact.seller1, contact.seller2].map((seller, idx) =>
+                <li>{seller}</li>
+              )}
+            </ul>
           </div>
         </section>
         <div className={cn(s.background, inverted && s.invert)}></div>

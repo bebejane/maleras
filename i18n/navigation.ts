@@ -12,7 +12,7 @@ export const pathnames = {
   },
   '/offer': {
     en: '/offer',
-    sv: '/erbjudande'
+    sv: '/produkter'
   }
 } satisfies Pathnames<typeof locales>;
 

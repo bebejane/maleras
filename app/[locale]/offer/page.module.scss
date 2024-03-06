@@ -38,7 +38,7 @@
       z-index: -1;
       background: black;
 
-      & > div {
+      &>div {
         opacity: 0.3;
       }
 
@@ -54,6 +54,10 @@
   section {
     scroll-margin-top: var(--navbar-height);
 
+    @include mq($until: desktop) {
+      scroll-margin-top: calc(var(--navbar-height) + 1em);
+    }
+
     ul {
       li {
         padding-left: var(--outer-margin);
@@ -62,13 +66,14 @@
         padding-bottom: var(--space);
         position: relative;
 
-        > div {
+        >div {
           flex: 0 0 50%;
         }
 
         .content {
           grid-column-start: 3;
           grid-column-end: 7;
+
           @include mq($until: desktop) {
             padding-bottom: 1em;
           }

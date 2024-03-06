@@ -1,6 +1,6 @@
 .offerNavBar {
   position: sticky;
-  top: calc(var(--outer-margin) + var(--navbar-height));
+  top: calc(var(--navbar-height));
   left: var(--outer-margin);
   z-index: var(--z-sidenavbar);
   margin-left: var(--outer-margin);
@@ -30,19 +30,21 @@
     padding-bottom: 1rem;
     position: relative;
 
-    &.selected {
-      &:before {
-        content: " ";
-        width: 0.3em;
-        height: 0.3em;
-        background-color: black;
-        position: absolute;
-        z-index: 1;
-        top: 0.4em;
-        margin-left: -0.8em;
-        transform: rotate(45deg);
-        @include mq($from: wide) {
-          top: 2.05em;
+    @include mq($from: desktop) {
+      &.selected {
+        &:before {
+          content: " ";
+          width: 0.3em;
+          height: 0.3em;
+          background-color: black;
+          position: absolute;
+          z-index: 1;
+          top: 0.4em;
+          margin-left: -0.8em;
+          transform: rotate(45deg);
+          @include mq($from: wide) {
+            top: 2.05em;
+          }
         }
       }
     }

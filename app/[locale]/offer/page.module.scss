@@ -38,7 +38,7 @@
       z-index: -1;
       background: black;
 
-      &>div {
+      & > div {
         opacity: 0.3;
       }
 
@@ -62,16 +62,26 @@
         padding-bottom: var(--space);
         position: relative;
 
-        >div {
+        > div {
           flex: 0 0 50%;
         }
 
         .content {
           grid-column-start: 3;
           grid-column-end: 7;
+          @include mq($until: desktop) {
+            padding-bottom: 1em;
+          }
+
+          h3 {
+            @include mq($until: desktop) {
+              padding-top: 1em;
+            }
+          }
 
           p {
             padding-right: var(--gutter);
+            margin-bottom: 0.5em;
           }
         }
 

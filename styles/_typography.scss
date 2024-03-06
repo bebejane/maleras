@@ -93,6 +93,12 @@ p {
   }
 }
 
+p {
+  @include mq($until: desktop) {
+    font-size: 0.85em;
+  }
+}
+
 .intro,
 .intro p {
   font-size: 1rem;

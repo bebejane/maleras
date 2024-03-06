@@ -16,6 +16,12 @@
 
     ul {
       list-style: none;
+      @include mq($until: desktop) {
+        display: flex;
+        li {
+          padding-right: 1em;
+        }
+      }
 
       a {
         color: var(--white);
@@ -25,19 +31,21 @@
         padding-bottom: 1rem;
         position: relative;
 
-        &.active {
-          &:before {
-            content: " ";
-            width: 0.3em;
-            height: 0.3em;
-            background-color: white;
-            position: absolute;
-            z-index: 1;
-            top: 0.4em;
-            margin-left: -0.8em;
-            transform: rotate(45deg);
-            @include mq($from: wide) {
-              top: 2.05em;
+        @include mq($from: desktop) {
+          &.active {
+            &:before {
+              content: " ";
+              width: 0.3em;
+              height: 0.3em;
+              background-color: white;
+              position: absolute;
+              z-index: 1;
+              top: 0.4em;
+              margin-left: -0.8em;
+              transform: rotate(45deg);
+              @include mq($from: wide) {
+                top: 2.05em;
+              }
             }
           }
         }

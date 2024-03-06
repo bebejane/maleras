@@ -128,15 +128,27 @@
 
   h1 {
     grid-column: span 5;
+    @include mq($until: desktop) {
+      padding-top: 1em;
+      padding-bottom: 0.3em;
+    }
   }
 
   .info {
     grid-column: span 7;
 
+    @include mq($until: desktop) {
+      padding-bottom: 2rem;
+    }
+
     .sellers {
       list-style: none;
-      display: flex;
-      flex-direction: row;
+      line-height: 1.25;
+
+      @include mq($from: desktop) {
+        display: flex;
+        flex-direction: row;
+      }
     }
   }
 }

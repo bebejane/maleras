@@ -21,6 +21,7 @@
 		--outer-margin: 0.8rem;
 		--gutter: 0.8rem;
 		--space: 1rem;
+		--space-small: 0.5rem;
 	}
 }
 
@@ -60,7 +61,7 @@ main {
 	padding-left: 0.7rem;
 	padding-right: 0.7rem;
 	display: inline-block;
-	margin-top: var(--space);
+	margin-top: var(--space-small);
 
 	&:hover {
 		color: var(--black) !important;

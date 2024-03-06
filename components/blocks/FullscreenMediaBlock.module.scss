@@ -18,10 +18,15 @@
     padding: var(--outer-margin);
 
     h1 {
-      flex: 0 0 50%;
+      @include mq($from: desktop) {
+        flex: 0 0 50%;
+      }
     }
 
     h2 {
+      @include mq($until: desktop) {
+        display: none;
+      }
       flex: 0 0 50%;
     }
   }

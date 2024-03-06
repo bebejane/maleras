@@ -23,9 +23,23 @@
 
       li {
         padding-bottom: 1rem;
+        position: relative;
 
         &.active {
-          padding-left: 1em;
+          &:before {
+            content: " ";
+            width: 0.3em;
+            height: 0.3em;
+            background-color: white;
+            position: absolute;
+            z-index: 1;
+            top: 0.4em;
+            margin-left: -0.8em;
+            transform: rotate(45deg);
+            @include mq($from: wide) {
+              top: 2.05em;
+            }
+          }
         }
       }
     }

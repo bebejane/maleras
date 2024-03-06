@@ -28,10 +28,22 @@
   li {
     list-style: none;
     padding-bottom: 1rem;
+    position: relative;
 
     &.selected {
-      a {
-        font-weight: bold;
+      &:before {
+        content: " ";
+        width: 0.3em;
+        height: 0.3em;
+        background-color: black;
+        position: absolute;
+        z-index: 1;
+        top: 0.4em;
+        margin-left: -0.8em;
+        transform: rotate(45deg);
+        @include mq($from: wide) {
+          top: 2.05em;
+        }
       }
     }
   }

@@ -11,7 +11,8 @@ export type Params = {
 
 export default function OfferNavBar({ allOfferCategories }: Params) {
 
-  const [currentSlug, setCurrentSlug] = useState<string | null>(null);
+  const categories = allOfferCategories.filter(({ _allReferencingOfferItems }) => _allReferencingOfferItems.length)
+  const [currentSlug, setCurrentSlug] = useState<string | null>(categories[0]?.slug ?? null);
   const isScrolling = useRef(false);
   const isDesktop = useIsDesktop();
   const ref = useRef<HTMLDivElement>(null);
@@ -22,14 +23,14 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
 
     if (!offers) return
 
-    const offerElements = offers.getElementsByTagName('section');
+    const offerElements = offers.querySelectorAll('section[data-offer-id]');
     const observer = new IntersectionObserver((entries) => {
       const mostVisible = entries.reduce((prev, current) => (prev.intersectionRatio > current.intersectionRatio ? prev : current));
 
       if (mostVisible.isIntersecting && !isScrolling.current) {
         setCurrentSlug(mostVisible.target.id);
       }
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
 
     Array.from(offerElements).forEach((el) => observer.observe(el));
 
@@ -57,7 +58,7 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
   return (
     <nav id="offer-navbar" className={s.offerNavBar} ref={ref}>
       <ul>
-        {allOfferCategories.filter(({ _allReferencingOfferItems }) => _allReferencingOfferItems.length).map((category, idx) => (
+        {categories.map((category, idx) => (
           <li key={idx} className={cn(currentSlug === category.slug && s.selected)}>
             <a href={`#${category.slug}`} onClick={handleClick}>
               {category.title}

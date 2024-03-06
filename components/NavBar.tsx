@@ -67,7 +67,7 @@ export default function NavBar({ locale, contact }: Props) {
             <Content className="intro" content={contact?.text} />
             <ul className={s.sellers}>
               {[contact.seller1, contact.seller2].map((seller, idx) =>
-                <li>{seller}</li>
+                <li key={idx}>{seller}</li>
               )}
             </ul>
           </div>

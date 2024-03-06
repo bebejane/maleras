@@ -11,6 +11,12 @@
     grid-column: span 7;
   }
 
+  h2 {
+    @include mq($until: desktop) {
+      padding-top: 0.5em;
+    }
+  }
+
   .offers {
     grid-column: span 5;
 

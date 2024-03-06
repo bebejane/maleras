@@ -72,7 +72,7 @@ export default function NavBar({ locale, contact }: Props) {
             </ul>
           </div>
         </section>
-        <div className={cn(s.background, inverted && s.invert)}></div>
+        <div className={cn(s.background, inverted && s.invert)} />
       </div>
     </>
   );

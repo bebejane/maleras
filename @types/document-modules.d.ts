@@ -44,6 +44,15 @@ declare module '*/MediaFragment.gql' {
 }
     
 
+declare module '*/OfferMediaFragment.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const OfferMediaFragment: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
 declare module '*/SEOFragment.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;

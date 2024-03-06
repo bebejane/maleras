@@ -7,6 +7,10 @@
   padding-left: var(--outer-margin);
   padding-right: var(--outer-margin);
 
+  @include mq($until: desktop) {
+    padding-bottom: 2rem;
+  }
+
   .gallery {
     grid-column: span 7;
   }
@@ -70,6 +74,10 @@
     figure {
       display: flex;
       aspect-ratio: 6/4;
+
+      & > div {
+        aspect-ratio: 6/4;
+      }
 
       img {
         max-height: 50vh;

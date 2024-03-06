@@ -6,6 +6,9 @@
   padding-right: var(--outer-margin);
   color: var(--white);
   //background-color: black;
+  @include mq($until: desktop) {
+    padding-bottom: 2rem;
+  }
 
   header {
     grid-column: span 5;

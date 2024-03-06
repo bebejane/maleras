@@ -35,8 +35,7 @@
   right: 0;
   width: 100%;
   z-index: var(--z-navbar);
-  //background-color: rgba(255, 255, 255, 0.9);
-  transition: all 3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   .menu {
     display: flex;

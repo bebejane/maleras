@@ -132,6 +132,12 @@
 
   .info {
     grid-column: span 7;
+
+    .sellers {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+    }
   }
 }
 

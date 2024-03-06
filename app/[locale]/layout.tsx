@@ -60,7 +60,7 @@ function Body({ children, locale, contact }: BodyProps) {
         <main>
           {children}
         </main>
-        <Footer />
+        <Footer contact={contact} />
       </NextIntlClientProvider>
     </body>
   )

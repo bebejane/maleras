@@ -13,5 +13,6 @@ query Contact($siteId: String, $locale: SiteLocale = sv) {
 		email
 		seller1
 		seller2
+		footer
 	}
 }

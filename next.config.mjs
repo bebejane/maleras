@@ -1,5 +1,4 @@
 import createNextIntlPlugin from "next-intl/plugin";
-import path from "path";
 
 const withNextIntl = createNextIntlPlugin("./i18n");
 
@@ -22,9 +21,11 @@ const nextConfig = {
 	devIndicators: {
 		buildActivity: false,
 	},
-	logging: {
-		fetches: {
-			fullUrl: false,
+	experimental: {
+		turbo: {
+			resolveAlias: {
+				"next-intl/config": "./i18n/index.ts",
+			},
 		},
 	},
 	async headers() {

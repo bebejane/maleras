@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import useIsDesktop from '@lib/hooks/useIsDesktop';
 import s from './OfferNavBar.module.scss'
 import cn from 'classnames';
+import { useScrollInfo } from 'next-dato-utils/hooks';
+import { set } from 'date-fns';
 
 export type Params = {
   allOfferCategories: OfferQuery['allOfferCategories']
@@ -16,6 +18,8 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
   const isScrolling = useRef(false);
   const isDesktop = useIsDesktop();
   const ref = useRef<HTMLDivElement>(null);
+  const { scrolledPosition } = useScrollInfo()
+
 
   useEffect(() => {
 
@@ -24,22 +28,19 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
     if (!offers) return
 
     const offerElements = offers.querySelectorAll('section[data-offer-id]');
-    const observer = new IntersectionObserver((entries) => {
-      const mostVisible = entries.reduce((prev, current) => (prev.intersectionRatio > current.intersectionRatio ? prev : current));
-
-      if (mostVisible.isIntersecting && !isScrolling.current) {
-        setCurrentSlug(mostVisible.target.id);
+    let mostVisible = offerElements[0];
+    let ratio = 0;
+    offerElements.forEach((offer) => {
+      const rect = offer.getBoundingClientRect();
+      const visibleRatio = rect.height / (window.innerHeight - rect.top);
+      if (visibleRatio > ratio) {
+        mostVisible = offer;
+        ratio = visibleRatio;
       }
-    }, { threshold: 0.3 });
+    });
+    setCurrentSlug(mostVisible.id);
 
-    Array.from(offerElements).forEach((el) => observer.observe(el));
-
-    return () => {
-      Array.from(offerElements).forEach((el) => observer.unobserve(el));
-      observer.disconnect();
-    };
-
-  }, [])
+  }, [scrolledPosition])
 
   useEffect(() => {
     // Set the margin-top of the first offer section to the height of the navbar, sticky stuff

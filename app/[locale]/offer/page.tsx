@@ -41,7 +41,7 @@ export default async function Offer({ params }: LocaleParams) {
           return (
             <section id={slug} key={idx} data-offer-id={id}>
               <ul>
-                {items.map(({ title, content, gallery, subtitle, backgroundImage, backgroundColor }, idx) => {
+                {items.map(({ title, content, gallery, subtitle, backgroundImage }, idx) => {
                   return (
                     <li key={idx} className="grid">
                       <div className={s.content}>

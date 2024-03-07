@@ -22,7 +22,7 @@ export default function NavBar({ locale, contact }: Props) {
   const contactRef = useRef<HTMLElement | null>(null)
   const pathname = usePathname()
   const { scrolledPosition, viewportHeight } = useScrollInfo()
-  const [inverted, setInvert] = useState(false)
+  const [inverted, setInvert] = useState(true)
 
   useEffect(() => {
     setInvert((scrolledPosition < viewportHeight || pathname === '/') && !showContact)
@@ -77,6 +77,7 @@ export default function NavBar({ locale, contact }: Props) {
           </div>
         </section>
         <div className={cn(s.background, inverted && s.invert)} />
+
       </div>
     </>
   );

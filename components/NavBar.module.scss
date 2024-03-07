@@ -16,16 +16,6 @@
   }
 }
 
-.background {
-  background-color: rgba(255, 255, 255, 0.9);
-  position: fixed;
-  width: 100%;
-  height: var(--navbar-height);
-  z-index: -1;
-  top: 0;
-  backdrop-filter: blur(10px);
-  transition: all 0.2s ease-in-out;
-}
 
 .navbar {
   position: fixed;
@@ -127,6 +117,7 @@
 
   h1 {
     grid-column: span 5;
+
     @include mq($until: desktop) {
       padding-top: 1em;
       padding-bottom: 0.3em;
@@ -155,6 +146,18 @@
     }
   }
 }
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: var(--navbar-height);
+  z-index: -1;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease-in-out;
+}
+
 
 .invert {
   color: var(--white);

@@ -5,7 +5,6 @@ import useIsDesktop from '@lib/hooks/useIsDesktop';
 import s from './OfferNavBar.module.scss'
 import cn from 'classnames';
 import { useScrollInfo } from 'next-dato-utils/hooks';
-import { set } from 'date-fns';
 
 export type Params = {
   allOfferCategories: OfferQuery['allOfferCategories']

@@ -2,7 +2,7 @@
 
 import s from './OfferBlock.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade, } from "swiper";
+import { Autoplay, EffectFade } from "swiper";
 import 'swiper/css';
 import "swiper/css/effect-fade";
 import React, { useRef, useState } from 'react'
@@ -23,13 +23,19 @@ export default function OfferBlock({ data: { title, text, categories, background
 
 	return (
 		<section className={cn(s.offer, "grid")}>
-			{background?.responsiveImage && <Image data={background.responsiveImage} className={s.background} />}
 			<div className={s.offers}>
 				<h2>{title}</h2>
 				<p className="intro">{text}</p>
-				<ul>
+				<ul
+					onMouseEnter={() => swiperRef.current.autoplay.stop()}
+					onMouseLeave={() => swiperRef.current.autoplay.start()}
+				>
 					{categories.map(({ title, slug }, i) => (
-						<li key={i} className={i === index ? s.active : undefined} onMouseEnter={() => swiperRef.current.slideTo(i)}>
+						<li
+							key={i}
+							className={i === index ? s.active : undefined}
+							onMouseEnter={() => swiperRef.current.slideTo(i)}
+						>
 							<Link href={{ pathname: `/offer`, hash: slug }}>
 								<span className="nav">{title}</span>
 							</Link>
@@ -44,7 +50,7 @@ export default function OfferBlock({ data: { title, text, categories, background
 					slidesPerView={1}
 					initialSlide={0}
 					effect={'fade'}
-					autoplay={{ delay: 2000, disableOnInteraction: true }}
+					autoplay={{ delay: 2000 }}
 					modules={[Autoplay, EffectFade]}
 					onSlideChange={() => setIndex(swiperRef.current?.activeIndex || 0)}
 					onSwiper={(swiper) => swiperRef.current = swiper}
@@ -58,6 +64,9 @@ export default function OfferBlock({ data: { title, text, categories, background
 					))}
 				</Swiper>
 			</div>
+			{background?.responsiveImage &&
+				<Image data={background.responsiveImage} className={s.background} />
+			}
 		</section>
 	)
 }

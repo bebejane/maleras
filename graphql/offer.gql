@@ -14,21 +14,24 @@ query Offer($siteId: String, $locale: SiteLocale = sv) {
 			...ImageFragment
 		}
 	}
-	allOfferCategories(locale: $locale, first: 100) {
-		id
-		title
-		slug
-		_allReferencingOfferItems(first: 100, locale: $locale) {
-			...OfferItemFragment
-		}
-	}
 }
 
-query AllOfferCategories($locale: SiteLocale = sv) {
-	allOfferCategories(locale: $locale, first: 100) {
+query AllOfferCategories($siteId: String, $locale: SiteLocale = sv) {
+	allOfferCategories(
+		locale: $locale
+		first: 100
+		filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }
+	) {
 		id
 		title
 		slug
+		_allReferencingOfferItems(
+			first: 100
+			locale: $locale
+			filter: { siteSelector: { any: { siteSelector: { siteId: { eq: $siteId } } } } }
+		) {
+			...OfferItemFragment
+		}
 	}
 }
 query OfferCategory($slug: String, $locale: SiteLocale = sv) {

@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { LocaleParams } from '@app/[locale]/layout';
 import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
-import { OfferDocument } from '@graphql';
+import { AllOfferCategoriesDocument, OfferDocument } from '@graphql';
 import { notFound } from 'next/navigation';
 import { Image } from 'react-datocms';
 import { locales, defaultLocale } from '@i18n';
@@ -15,9 +15,14 @@ import OfferNavBar from './OfferNavBar';
 
 export default async function Offer({ params }: LocaleParams) {
 
-  const { offer, allOfferCategories, draftUrl } = await apiQuery<OfferQuery, OfferQueryVariables>(OfferDocument, {
+  const { offer, draftUrl } = await apiQuery<OfferQuery, OfferQueryVariables>(OfferDocument, {
     variables: { siteId: process.env.NEXT_PUBLIC_SITE_ID, locale: params.locale as SiteLocale },
-    tags: ['offer', 'offer_category', 'offer_item']
+    tags: ['offer']
+  });
+
+  const { allOfferCategories } = await apiQuery<AllOfferCategoriesQuery, AllOfferCategoriesQueryVariables>(AllOfferCategoriesDocument, {
+    variables: { siteId: process.env.NEXT_PUBLIC_SITE_ID, locale: params.locale as SiteLocale },
+    tags: ['offer_category', 'offer_item']
   });
 
   if (!offer) return notFound();
@@ -37,7 +42,7 @@ export default async function Offer({ params }: LocaleParams) {
           }
         </header>
         <OfferNavBar allOfferCategories={allOfferCategories} />
-        {allOfferCategories.map(({ id, slug, _allReferencingOfferItems: items }, idx) => {
+        {allOfferCategories?.map(({ id, slug, _allReferencingOfferItems: items }, idx) => {
           return (
             <section id={slug} key={idx} data-offer-id={id}>
               <ul>

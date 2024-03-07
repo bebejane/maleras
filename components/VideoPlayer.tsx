@@ -69,7 +69,7 @@ export default function VideoPlayer({ data, className }: VideoPlayerProps) {
 				loop={true}
 				autoPlay={false}
 				disablePictureInPicture={true}
-			//poster={data.video?.thumbnailUrl}
+				poster={data.video?.thumbnailUrl}
 			/>
 			{/*hasAudio &&
 				<div ref={muteRef} className={cn(styles.mute, !muted && styles.enabled)} onClick={handleMute}>

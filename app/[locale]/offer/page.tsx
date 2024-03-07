@@ -17,7 +17,7 @@ export default async function Offer({ params }: LocaleParams) {
 
   const { offer, allOfferCategories, draftUrl } = await apiQuery<OfferQuery, OfferQueryVariables>(OfferDocument, {
     variables: { siteId: process.env.NEXT_PUBLIC_SITE_ID, locale: params.locale as SiteLocale },
-    tags: ['offer', 'offer_category']
+    tags: ['offer', 'offer_category', 'offer_item']
   });
 
   if (!offer) return notFound();

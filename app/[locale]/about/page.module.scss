@@ -33,6 +33,9 @@
       @include mq($until: desktop) {
         display: none;
       }
+      @include mq($from: desktop) {
+        flex: 0 0 50%;
+      }
     }
 
     figure,

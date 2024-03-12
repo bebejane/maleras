@@ -1,5 +1,6 @@
 import '@styles/index.scss'
 
+
 export type LayoutProps = {
   children: React.ReactNode,
 }

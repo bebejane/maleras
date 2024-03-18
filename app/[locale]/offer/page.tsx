@@ -33,7 +33,9 @@ export default async function Offer({ params }: LocaleParams) {
         <header>
           <section>
             <h1>{offer.title}</h1>
-            <Content content={offer.content} className="intro" />
+            <div class={s.text}>
+              <Content content={offer.content} className="intro" />
+            </div>
           </section>
           {offer.image &&
             <figure>

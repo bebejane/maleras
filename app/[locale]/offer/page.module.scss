@@ -20,7 +20,7 @@
         }
       }
 
-      p {
+      .text {
         @include mq($from: desktop) {
           width: 70%;
           padding-right: 10%;
@@ -38,7 +38,7 @@
       z-index: -1;
       background: black;
 
-      &>div {
+      & > div {
         opacity: 0.3;
       }
 
@@ -70,7 +70,7 @@
         padding-bottom: var(--space);
         position: relative;
 
-        >div {
+        > div {
           flex: 0 0 50%;
         }
 

@@ -12,4 +12,5 @@ export default getRequestConfig(async ({ locale }) => {
   return {
     messages: (await import(`./messages/${locale}-${process.env.NEXT_PUBLIC_SITE_ID}.json`)).default,
   };
+
 });

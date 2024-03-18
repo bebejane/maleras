@@ -6,15 +6,12 @@ import { apiQuery } from 'next-dato-utils/api';
 import { ContactDocument, GlobalDocument } from "@graphql";
 import { Metadata } from "next/types";
 import { Icon } from "next/dist/lib/metadata/types/metadata-types";
-
+import { NextIntlClientProvider, useMessages } from 'next-intl';
 import NavBar from '@components/NavBar';
 import Footer from '@components/Footer';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
 
 export type LocaleParams = {
-  params: {
-    locale: string
-  }
+  params: { locale: string },
   searchParams?: any
 }
 
@@ -22,6 +19,7 @@ export type RootLayoutProps = {
   children: React.ReactNode,
   params: LocaleParams['params'],
 }
+
 export type BodyProps = {
   children: React.ReactNode,
   locale: string
@@ -39,14 +37,13 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
     tags: ['contact']
   });
 
-  return (
 
+  return (
     <html lang={locale}>
       <Body locale={locale} contact={contact}>
         {children}
       </Body>
     </html>
-
   );
 }
 

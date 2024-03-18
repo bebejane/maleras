@@ -7,7 +7,6 @@ export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
   return await webPreviews(req, async ({ item, itemType, locale }) => {
-    console.log(locale)
     const siteId = item.attributes?.siteSelector?.siteId ?? null
     const path = await buildRoute(itemType.attributes.api_key, item.attributes, locale)
 

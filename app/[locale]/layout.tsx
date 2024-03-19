@@ -27,6 +27,7 @@ export type BodyProps = {
 }
 
 export const dynamic = 'force-static'
+export const runtime = 'edge'
 
 export default async function RootLayout({ children, params }: RootLayoutProps) {
   const locale = params?.locale ?? defaultLocale

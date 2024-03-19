@@ -33,7 +33,7 @@ export default async function Offer({ params }: LocaleParams) {
         <header>
           <section>
             <h1>{offer.title}</h1>
-            <div class={s.text}>
+            <div className={s.text}>
               <Content content={offer.content} className="intro" />
             </div>
           </section>
@@ -59,7 +59,7 @@ export default async function Offer({ params }: LocaleParams) {
                       <div className={s.gallery}>
                         {gallery.map(({ media }) => media.map((m, idx) =>
                           <figure className={cn(media.length > 1 && s.double)} key={idx}>
-                            <Image data={m.responsiveImage} />
+                            <Image data={m.responsiveImage} intersectionMargin="0px 0px 100% 0px" />
                           </figure>
                         ))}
                       </div>

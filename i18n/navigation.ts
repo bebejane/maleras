@@ -10,8 +10,8 @@ export const pathnames = {
     en: '/about',
     sv: '/om-oss'
   },
-  '/offer': {
-    en: '/offer',
+  '/products': {
+    en: '/products',
     sv: '/produkter'
   }
 } satisfies Pathnames<typeof locales>;

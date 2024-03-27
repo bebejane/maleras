@@ -84,13 +84,13 @@ export async function generateMetadata({ params }: LocaleParams) {
 
   const languages = {}
   locales.forEach((l) =>
-    languages[l] = `${process.env.NEXT_PUBLIC_SITE_URL}/${l}${getPathname({ href: '/offer', locale: l })}`
+    languages[l] = `${process.env.NEXT_PUBLIC_SITE_URL}/${l}${getPathname({ href: '/products', locale: l })}`
   )
 
   return {
     title: t('offer'),
     alternates: {
-      canonical: getPathname({ href: "/offer", locale: defaultLocale }),
+      canonical: getPathname({ href: "/products", locale: defaultLocale }),
       languages
     }
   }

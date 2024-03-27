@@ -17,7 +17,7 @@ export default function AboutBlock({ data: { headline, text, media } }: LayoutPr
 			</div>
 			{media.responsiveImage ?
 				<figure className={s.image}>
-					<Image data={media.responsiveImage} />
+					<Image data={media.responsiveImage} intersectionMargin="0px 0px 100% 0px" />
 				</figure>
 				:
 				<VideoPlayer data={media} className={s.video} />

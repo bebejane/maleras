@@ -31,15 +31,15 @@ const routes: Routes = {
   },
   "offer": {
     typeName: "OfferRecord",
-    path: async (item, locale) => getPathname({ locale, href: '/offer' })
+    path: async (item, locale) => getPathname({ locale, href: '/products' })
   },
   "offer_category": {
     typeName: "OfferCategoryRecord",
-    path: async (item, locale) => getPathname({ locale, href: '/offer' })
+    path: async (item, locale) => getPathname({ locale, href: '/products' })
   },
   "offer_item": {
     typeName: "OfferItemRecord",
-    path: async (item, locale) => getPathname({ locale, href: '/offer' })
+    path: async (item, locale) => getPathname({ locale, href: '/products' })
   }
 }
 

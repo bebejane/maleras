@@ -7,7 +7,7 @@ import cn from 'classnames';
 import { useScrollInfo } from 'next-dato-utils/hooks';
 
 export type Params = {
-  allOfferCategories: OfferQuery['allOfferCategories']
+  allOfferCategories: AllOfferCategoriesQuery['allOfferCategories']
 }
 
 export default function OfferNavBar({ allOfferCategories }: Params) {

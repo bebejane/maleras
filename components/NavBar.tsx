@@ -25,7 +25,7 @@ export default function NavBar({ locale, contact }: Props) {
   const [inverted, setInvert] = useState(true)
 
   useEffect(() => {
-    setInvert((scrolledPosition < viewportHeight || pathname === '/') && !showContact)
+    setInvert((scrolledPosition < viewportHeight) && !showContact)
   }, [scrolledPosition, viewportHeight, pathname, showContact])
 
   useEffect(() => {
@@ -40,8 +40,8 @@ export default function NavBar({ locale, contact }: Props) {
       <div className={s.navbar}>
         <nav className={cn(s.menu, inverted && s.invert)}>
           <ul>
-            <li className={cn(pathname === '/offer' && !showContact && s.selected)}>
-              <Link href={`/offer`}>{t('offer')}</Link>
+            <li className={cn(pathname === '/products' && !showContact && s.selected)}>
+              <Link href={`/products`}>{t('offer')}</Link>
             </li>
             <li className={cn(pathname === '/about' && !showContact && s.selected)}>
               <Link href={`/about`}>{t('about')}</Link>

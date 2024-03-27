@@ -36,13 +36,13 @@ export default function OfferBlock({ data: { title, text, categories, background
 							className={i === index ? s.active : undefined}
 							onMouseEnter={() => swiperRef.current.slideTo(i)}
 						>
-							<Link href={{ pathname: `/offer`, hash: slug }}>
+							<Link href={{ pathname: `/products`, hash: slug }}>
 								<span className="nav">{title}</span>
 							</Link>
 						</li>
 					))}
 				</ul>
-				<Link className="button nav" href={`/offer`}>{t('read-more')}</Link>
+				<Link className="button nav" href={`/products`}>{t('read-more')}</Link>
 			</div>
 			<div className={s.gallery}>
 				<Swiper

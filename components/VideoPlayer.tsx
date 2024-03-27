@@ -9,36 +9,24 @@ import { useInView } from 'react-intersection-observer'
 
 export type VideoPlayerProps = { data: FileField, className?: string }
 
-const videoHasAudio = (video) => {
-	if (!video) return false
-	return (
-		video.mozHasAudio ||
-		Boolean(video.webkitAudioDecodedByteCount) ||
-		Boolean(video.audioTracks?.length)
-	);
-}
-
 export default function VideoPlayer({ data, className }: VideoPlayerProps) {
 
 	const [inViewRef, inView] = useInView();
 	const videoRef = useRef<HTMLVideoElement | null>(null);
+	const posterRef = useRef<any | null>(null);
 	const muteRef = useRef<HTMLDivElement | null>(null);
 	const [active, setActive] = useState(false)
+	const [showPoster, setShowPoster] = useState(false)
 	const [muted, setMuted] = useState(true)
 	const [hasAudio, setHasAudio] = useState(false)
 	const [quality, setQuality] = useState<String | null>('high')
+
 
 	const setRefs = useCallback((node) => {
 		videoRef.current = node;
 		inViewRef(node);
 	}, [inViewRef]);
 
-	const handleMute = (e) => {
-		e.stopPropagation()
-		e.preventDefault()
-		videoRef.current.muted = !videoRef.current.muted
-		setMuted(videoRef.current.muted)
-	}
 
 	useEffect(() => {
 		if (!videoRef.current)
@@ -54,28 +42,46 @@ export default function VideoPlayer({ data, className }: VideoPlayerProps) {
 	useEffect(() => { setActive(inView) }, [inView])
 
 	useEffect(() => {
-		videoRef.current.addEventListener('loadeddata', () => setHasAudio(videoHasAudio(videoRef.current)))
-		setHasAudio(videoHasAudio(videoRef.current))
-	}, [active])
+
+		if (!videoRef.current) return
+
+		const loadedData = () => setHasAudio(videoHasAudio(videoRef.current))
+		const canPlay = () => { setShowPoster(false) }
+
+		videoRef.current.addEventListener('loadeddata', loadedData)
+		videoRef.current.addEventListener('canplay', canPlay)
+
+		return () => {
+			videoRef.current?.removeEventListener('loadeddata', loadedData)
+			videoRef.current?.removeEventListener('canplay', canPlay)
+		}
+	}, [active, videoRef])
+
+	useEffect(() => {
+		clearTimeout(posterRef.current)
+		posterRef.current = setTimeout(() => setShowPoster(true), 1000)
+	}, [showPoster, videoRef])
 
 	return (
-		<div className={styles.container} style={{ width: '100%', height: '100%', position: 'relative' }}>
-			<video
-				className={cn(styles.video, className)}
-				src={quality ? data.video[`mp4${quality}`] : undefined}
-				ref={setRefs}
-				playsInline={true}
-				muted={true}
-				loop={true}
-				autoPlay={false}
-				disablePictureInPicture={true}
-				poster={data.video?.thumbnailUrl}
-			/>
-			{/*hasAudio &&
-				<div ref={muteRef} className={cn(styles.mute, !muted && styles.enabled)} onClick={handleMute}>
-					{muted ? <SondOff /> : <SoundOn />}
-				</div>
-	*/}
-		</div>
+		<video
+			className={cn(styles.video, className)}
+			src={quality ? data.video[`mp4${quality}`] : undefined}
+			ref={setRefs}
+			playsInline={true}
+			muted={true}
+			loop={true}
+			autoPlay={false}
+			disablePictureInPicture={true}
+			poster={showPoster && data.video?.thumbnailUrl}
+		/>
 	)
+}
+
+const videoHasAudio = (video) => {
+	if (!video) return false
+	return (
+		video.mozHasAudio ||
+		Boolean(video.webkitAudioDecodedByteCount) ||
+		Boolean(video.audioTracks?.length)
+	);
 }

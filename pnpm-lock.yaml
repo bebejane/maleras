@@ -43,7 +43,7 @@ dependencies:
     version: 14.2.0-canary.44(@babel/core@7.23.9)(react-dom@18.2.0)(react@18.2.0)(sass@1.71.0)
   next-dato-utils:
     specifier: github:bebejane/next-dato-utils
-    version: github.com/bebejane/next-dato-utils/187c2085c0e78d280256b7ce96929bb1fc41818c(@datocms/cma-client-browser@3.1.2)(@datocms/cma-client-node@3.1.2)(@types/react-dom@18.2.19)(@types/react@18.2.56)(datocms-structured-text-utils@2.1.12)(graphql@16.8.1)(react-datocms@5.0.3)(react-dom@18.2.0)(react@18.2.0)(sass@1.71.0)
+    version: github.com/bebejane/next-dato-utils/75afe963274a397649a59ffc3583c9473a8a0804(@datocms/cma-client-browser@3.1.2)(@datocms/cma-client-node@3.1.2)(@datocms/cma-client@3.1.6)(@types/react-dom@18.2.19)(@types/react@18.2.56)(datocms-structured-text-utils@2.1.12)(graphql@16.8.1)(postmark@4.0.2)(react-datocms@5.0.3)(react-dom@18.2.0)(react@18.2.0)(sass@1.71.0)(zod@3.22.4)
   next-intl:
     specifier: ^3.9.5
     version: 3.9.5(next@14.2.0-canary.44)(react@18.2.0)
@@ -770,8 +770,21 @@ packages:
       uuid: 9.0.1
     dev: false
 
+  /@datocms/cma-client@3.1.6:
+    resolution: {integrity: sha512-LuPZr8B7E3OdauWC8+1EAaytFlH/pypJDy9hIk/JBnssTRRzsxO0EX3B847LERztm0bC9KxgWrBsRhnqdXH0Ng==}
+    dependencies:
+      '@datocms/rest-client-utils': 3.1.5
+      uuid: 9.0.1
+    dev: false
+
   /@datocms/rest-client-utils@3.0.5:
     resolution: {integrity: sha512-BoyfQ8vT8X84V8x0MKuM8SXwUh+Vi3Xd1bJg7rDExsfGIEYaNVoDlAXnuJNMsX5Y/d2oZRPdQdpb4n4YQ4GfLA==}
+    dependencies:
+      async-scheduler: 1.4.4
+    dev: false
+
+  /@datocms/rest-client-utils@3.1.5:
+    resolution: {integrity: sha512-DlV/6N7AcWOK2ea0nU28bpCGZoOeRTfdqJHIaLroIEGAbI19ks9/841+s18S9lNzofUnbI2NQVw2eXLQY2cYeA==}
     dependencies:
       async-scheduler: 1.4.4
     dev: false
@@ -7387,25 +7400,29 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
     dev: false
 
-  github.com/bebejane/next-dato-utils/187c2085c0e78d280256b7ce96929bb1fc41818c(@datocms/cma-client-browser@3.1.2)(@datocms/cma-client-node@3.1.2)(@types/react-dom@18.2.19)(@types/react@18.2.56)(datocms-structured-text-utils@2.1.12)(graphql@16.8.1)(react-datocms@5.0.3)(react-dom@18.2.0)(react@18.2.0)(sass@1.71.0):
-    resolution: {tarball: https://codeload.github.com/bebejane/next-dato-utils/tar.gz/187c2085c0e78d280256b7ce96929bb1fc41818c}
-    id: github.com/bebejane/next-dato-utils/187c2085c0e78d280256b7ce96929bb1fc41818c
+  github.com/bebejane/next-dato-utils/75afe963274a397649a59ffc3583c9473a8a0804(@datocms/cma-client-browser@3.1.2)(@datocms/cma-client-node@3.1.2)(@datocms/cma-client@3.1.6)(@types/react-dom@18.2.19)(@types/react@18.2.56)(datocms-structured-text-utils@2.1.12)(graphql@16.8.1)(postmark@4.0.2)(react-datocms@5.0.3)(react-dom@18.2.0)(react@18.2.0)(sass@1.71.0)(zod@3.22.4):
+    resolution: {tarball: https://codeload.github.com/bebejane/next-dato-utils/tar.gz/75afe963274a397649a59ffc3583c9473a8a0804}
+    id: github.com/bebejane/next-dato-utils/75afe963274a397649a59ffc3583c9473a8a0804
     name: next-dato-utils
-    version: 1.0.514
+    version: 1.0.527
     engines: {node: '>=0.18'}
     hasBin: true
     peerDependencies:
+      '@datocms/cma-client': '>=3.0.0'
       '@datocms/cma-client-browser': '>=3.0.0'
       '@datocms/cma-client-node': '>=3.0.0'
       '@types/react': '>=18.2.3'
       '@types/react-dom': '>=18.2.1'
       datocms-structured-text-utils: '>=2.0.0'
       graphql: '>=16.8.0'
+      postmark: '>=4.0.0'
       react: '>=18.2.0'
       react-datocms: '>=4.0.0'
       react-dom: '>=18.2.0'
       sass: '>=1.69.0'
+      zod: ^>=3.22.0
     dependencies:
+      '@datocms/cma-client': 3.1.6
       '@datocms/cma-client-browser': 3.1.2
       '@datocms/cma-client-node': 3.1.2
       '@types/is-integer': 1.0.2
@@ -7419,6 +7436,7 @@ packages:
       graphql: 16.8.1
       is-integer: 1.0.7
       object-traversal: 1.0.1
+      postmark: 4.0.2
       pretty-bytes: 6.1.1
       react: 18.2.0
       react-datocms: 5.0.3(@types/react-dom@18.2.19)(@types/react@18.2.56)(graphql@16.8.1)(react-dom@18.2.0)(react@18.2.0)
@@ -7428,6 +7446,7 @@ packages:
       remark-gfm: 4.0.0
       sass: 1.71.0
       table: 6.8.1
+      zod: 3.22.4
     transitivePeerDependencies:
       - supports-color
     dev: false

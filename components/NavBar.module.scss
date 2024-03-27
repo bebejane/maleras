@@ -11,11 +11,13 @@
     width: 2.5rem;
 
     @include mq($from: desktop) {
-      width: 3.3rem;
+      width: 3rem;
+    }
+    @include mq($from: wide) {
+      width: 2.7rem;
     }
   }
 }
-
 
 .navbar {
   position: fixed;
@@ -157,7 +159,6 @@
   backdrop-filter: blur(10px);
   transition: all 0.2s ease-in-out;
 }
-
 
 .invert {
   color: var(--white);

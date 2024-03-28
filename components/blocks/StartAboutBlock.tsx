@@ -1,5 +1,6 @@
 import s from './StartAboutBlock.module.scss'
 import React from 'react'
+import { Markdown } from 'next-dato-utils/components'
 import { Image } from 'react-datocms'
 import { Link } from '@i18n/navigation'
 import cn from 'classnames'
@@ -18,7 +19,7 @@ export default function StartAboutBlock({ data: { headline, text, image, backgro
 			</figure>
 			<header>
 				<h2>{headline}</h2>
-				<p className="intro" >{text}</p>
+				<Markdown className="intro" content={text} />
 				<Link className="button nav" href={`/about`}>{t('read-more')}</Link>
 			</header>
 			{background && <Image data={background.responsiveImage} className={s.background} />}

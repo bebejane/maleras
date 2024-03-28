@@ -12,6 +12,7 @@ import { getTranslations } from 'next-intl/server';
 
 import Content from '@components/Content';
 import OfferNavBar from './OfferNavBar';
+import VideoPlayer from '../../../components/VideoPlayer';
 
 export default async function Offer({ params }: LocaleParams) {
 
@@ -59,7 +60,11 @@ export default async function Offer({ params }: LocaleParams) {
                       <div className={s.gallery}>
                         {gallery.map(({ media }) => media.map((m, idx) =>
                           <figure className={cn(media.length > 1 && s.double)} key={idx}>
-                            <Image data={m.responsiveImage} intersectionMargin="0px 0px 100% 0px" />
+                            {m.video ?
+                              <VideoPlayer data={m as FileField} />
+                              :
+                              <Image data={m.responsiveImage} intersectionMargin="0px 0px 100% 0px" />
+                            }
                           </figure>
                         ))}
                       </div>

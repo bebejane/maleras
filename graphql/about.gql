@@ -15,7 +15,14 @@ query About($siteId: String, $locale: SiteLocale = sv) {
 				id
 				headline
 				text {
-					blocks
+					blocks {
+						__typename
+						... on ButtonBlockRecord {
+							id
+							url
+							text
+						}
+					}
 					links
 					value
 				}

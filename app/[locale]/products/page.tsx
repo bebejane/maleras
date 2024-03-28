@@ -12,7 +12,7 @@ import { getTranslations } from 'next-intl/server';
 
 import Content from '@components/Content';
 import OfferNavBar from './OfferNavBar';
-import VideoPlayer from '../../../components/VideoPlayer';
+import VideoPlayer from '@components/VideoPlayer';
 
 export default async function Offer({ params }: LocaleParams) {
 

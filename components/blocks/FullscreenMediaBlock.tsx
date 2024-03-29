@@ -15,7 +15,7 @@ export default function FullscreenMediaBlock({ data: { title, text, media } }: L
 			</div>
 			{media.responsiveImage ?
 				<figure className={s.image}>
-					<Image data={media.responsiveImage} />
+					<Image data={media.responsiveImage} fadeInDuration={0} />
 				</figure>
 				:
 				<VideoPlayer data={media} className={s.video} />

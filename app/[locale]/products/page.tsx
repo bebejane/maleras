@@ -40,7 +40,7 @@ export default async function Offer({ params }: LocaleParams) {
           </section>
           {offer.image &&
             <figure>
-              <Image data={offer.image.responsiveImage} pictureClassName={s.image} />
+              <Image data={offer.image.responsiveImage} pictureClassName={s.image} fadeInDuration={0} />
             </figure>
           }
         </header>

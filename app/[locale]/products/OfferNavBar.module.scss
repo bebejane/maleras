@@ -30,6 +30,10 @@
   @include mq($from: desktop) {
     margin-top: calc(var(--space));
     top: calc(var(--navbar-height) + var(--space));
+
+    ul {
+      grid-column: span 2;
+    }
   }
 
   li {
@@ -51,7 +55,7 @@
           transform: rotate(45deg);
 
           @include mq($from: wide) {
-            top: 2.05em;
+            top: 0.35em;
           }
         }
       }

@@ -56,7 +56,7 @@ export default function OfferNavBar({ allOfferCategories }: Params) {
   }
 
   return (
-    <nav id="offer-navbar" className={s.offerNavBar} ref={ref}>
+    <nav id="offer-navbar" className={cn(s.offerNavBar, "grid")} ref={ref}>
       <ul>
         {categories.map((category, idx) => (
           <li key={idx} className={cn(currentSlug === category.slug && s.selected)}>

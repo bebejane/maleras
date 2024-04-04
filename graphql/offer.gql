@@ -62,7 +62,14 @@ fragment OfferItemFragment on OfferItemRecord {
 	}
 	subtitle
 	content {
-		blocks
+		blocks {
+			__typename
+			... on ButtonBlockRecord {
+				id
+				text
+				url
+			}
+		}
 		links
 		value
 	}

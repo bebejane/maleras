@@ -84,11 +84,12 @@
   color: var(--gray);
   align-items: center;
 
-  @include mq($until: desktop) {
-    display: none;
-  }
-
   span {
+    @include mq($until: desktop) {
+      padding-right: 1rem;
+      padding-left: 0rem;
+    }
+
     padding-right: 2rem;
     padding-left: 1rem;
   }

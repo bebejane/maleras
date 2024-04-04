@@ -38,7 +38,7 @@
       z-index: -1;
       background: black;
 
-      & > div {
+      &>div {
         opacity: 0.3;
       }
 
@@ -70,7 +70,7 @@
         padding-bottom: var(--space);
         position: relative;
 
-        > div {
+        >div {
           flex: 0 0 50%;
         }
 
@@ -92,6 +92,11 @@
             padding-right: var(--gutter);
             margin-bottom: 0.5em;
           }
+
+          button {
+            background-color: transparent !important;
+          }
+
         }
 
         .gallery {
@@ -105,7 +110,7 @@
             margin-bottom: var(--gutter);
             width: 100%;
 
-            & > div {
+            &>div {
               max-width: none !important;
             }
 

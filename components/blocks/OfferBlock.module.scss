@@ -6,6 +6,7 @@
   padding-bottom: var(--space);
   padding-left: var(--outer-margin);
   padding-right: var(--outer-margin);
+  overflow: hidden;
 
   @include mq($until: desktop) {
     padding-bottom: 2rem;
@@ -23,6 +24,7 @@
 
   .offers {
     grid-column: span 5;
+
     @include mq($from: desktop) {
       padding-top: var(--outer-margin);
       padding-right: var(--outer-margin);
@@ -30,10 +32,15 @@
 
     ul {
       list-style: none;
+
       @include mq($until: desktop) {
         display: flex;
+        overflow-x: scroll;
+
         li {
           padding-right: 1em;
+          white-space: nowrap;
+
         }
       }
 
@@ -57,6 +64,7 @@
               top: 0.4em;
               margin-left: -0.8em;
               transform: rotate(45deg);
+
               @include mq($from: wide) {
                 top: 0.35em;
               }
@@ -79,7 +87,7 @@
       display: flex;
       aspect-ratio: 6/4;
 
-      & > div {
+      &>div {
         aspect-ratio: 6/4;
       }
 
@@ -104,6 +112,7 @@
       height: 100%;
       object-fit: cover;
     }
+
     picture {
       opacity: 0.3;
     }

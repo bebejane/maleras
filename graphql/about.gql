@@ -21,6 +21,7 @@ query About($siteId: String, $locale: SiteLocale = sv) {
 							id
 							url
 							text
+							openInNewWindow
 						}
 					}
 					links

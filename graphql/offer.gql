@@ -68,6 +68,7 @@ fragment OfferItemFragment on OfferItemRecord {
 				id
 				text
 				url
+				openInNewWindow
 			}
 		}
 		links

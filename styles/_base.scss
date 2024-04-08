@@ -64,8 +64,12 @@ main {
 	margin-top: var(--space-small);
 
 	&:hover {
-		color: var(--black) !important;
+		color: var(--foreground) !important;
 	}
+}
+
+button {
+	color: var(--black);
 }
 
 a {

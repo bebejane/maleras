@@ -1,7 +1,7 @@
 import '@styles/index.scss';
 import { defaultLocale, locales } from '@i18n';
 import { getPathname } from '@i18n/navigation';
-import { unstable_setRequestLocale as setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { apiQuery } from 'next-dato-utils/api';
 import { ContactDocument, GlobalDocument } from '@graphql';
 import { Metadata } from 'next/types';

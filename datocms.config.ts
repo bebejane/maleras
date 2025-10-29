@@ -17,7 +17,7 @@ export default {
 			getPathname({ locale, href: '/' }),
 		],
 		offer_item: async (record, locale) => [getPathname({ locale, href: '/products' })],
-		upload: async (record, locale) => getUploadReferenceRoutes(record),
+		upload: async ({ id }) => getUploadReferenceRoutes(id),
 	},
 	sitemap: async () => {
 		//@ts-ignore

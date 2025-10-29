@@ -1,0 +1,22 @@
+{
+	"NavBar": {
+		"offer": {
+			"en": "Products",
+			"sv": "Produkter"
+		},
+		"about": {
+			"en": "About",
+			"sv": "Om oss"
+		},
+		"contact": {
+			"en": "Contact",
+			"sv": "Kontakt"
+		}
+	},
+	"General": {
+		"read-more": {
+			"en": "Read more",
+			"sv": "Läs mer"
+		}
+	}
+}

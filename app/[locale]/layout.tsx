@@ -1,18 +1,17 @@
-import '@styles/index.scss';
-import { defaultLocale, locales } from '@i18n';
-import { getPathname } from '@i18n/navigation';
+import '@/styles/index.scss';
+import { getPathname, defaultLocale, locales } from '@/i18n/routing';
 import { setRequestLocale } from 'next-intl/server';
 import { apiQuery } from 'next-dato-utils/api';
-import { ContactDocument, GlobalDocument } from '@graphql';
+import { ContactDocument, GlobalDocument } from '@/graphql';
 import { Metadata } from 'next/types';
 import { Icon } from 'next/dist/lib/metadata/types/metadata-types';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
-import NavBar from '@components/NavBar';
-import Footer from '@components/Footer';
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 import { notFound } from 'next/navigation';
 
 export type LocaleParams = {
-	params: { locale: string };
+	params: Promise<{ locale: SiteLocale }>;
 	searchParams?: any;
 };
 
@@ -30,15 +29,13 @@ export type BodyProps = {
 export const dynamic = 'force-static';
 
 export default async function RootLayout({ children, params }: RootLayoutProps) {
-	const locale = params?.locale ?? defaultLocale;
-
+	const locale = (await params).locale ?? defaultLocale;
 	if (!locales.includes(locale)) return notFound();
 
 	setRequestLocale(locale);
 
-	const { contact } = await apiQuery<ContactQuery, ContactQueryVariables>(ContactDocument, {
+	const { contact } = await apiQuery(ContactDocument, {
 		variables: { siteId: process.env.NEXT_PUBLIC_SITE_ID, locale: locale as SiteLocale },
-		tags: ['contact'],
 	});
 
 	return (
@@ -68,14 +65,13 @@ export function generateStaticParams() {
 	return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: LocaleParams) {
-	params = Object.keys(params).length === 0 ? { locale: defaultLocale } : params;
+export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
+	const locale = (await params).locale;
 
 	const {
 		site: { globalSeo, faviconMetaTags },
 	} = await apiQuery<GlobalQuery, GlobalQueryVariables>(GlobalDocument, {
-		variables: { locale: params.locale as SiteLocale },
-		generateTags: false,
+		variables: { locale },
 	});
 
 	const languages = {};
@@ -126,7 +122,7 @@ export async function generateMetadata({ params }: LocaleParams) {
 					alt: globalSeo?.siteName,
 				},
 			],
-			locale: params.locale,
+			locale,
 			type: 'website',
 		},
 	} as Metadata;

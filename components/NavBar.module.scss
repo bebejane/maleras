@@ -1,185 +1,185 @@
 .logo {
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  left: var(--outer-margin);
-  z-index: var(--z-logo);
-  height: var(--navbar-height);
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	left: var(--outer-margin);
+	z-index: var(--z-logo);
+	height: var(--navbar-height);
 
-  img {
-    width: 2.5rem;
+	img {
+		width: 2.5rem;
 
-    @include mq($from: desktop) {
-      width: 3rem;
-    }
-    @include mq($from: wide) {
-      width: 2.7rem;
-    }
-  }
+		@include mq($from: desktop) {
+			width: 3rem;
+		}
+		@include mq($from: wide) {
+			width: 2.7rem;
+		}
+	}
 }
 
 .navbar {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  top: 0;
-  right: 0;
-  width: 100%;
-  z-index: var(--z-navbar);
-  transition: all 0.3s ease-in-out;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	top: 0;
+	right: 0;
+	width: 100%;
+	z-index: var(--z-navbar);
+	transition: all 0.3s ease-in-out;
 
-  .menu {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    padding-left: var(--outer-margin);
-    padding-right: var(--outer-margin);
-    height: var(--navbar-height);
+	.menu {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+		padding-left: var(--outer-margin);
+		padding-right: var(--outer-margin);
+		height: var(--navbar-height);
 
-    ul {
-      list-style: none;
-      display: flex;
-      flex-direction: row;
-      padding-right: 1rem;
+		ul {
+			list-style: none;
+			display: flex;
+			flex-direction: row;
+			padding-right: 1rem;
 
-      li {
-        padding-left: 1em;
-        cursor: pointer;
+			li {
+				padding-left: 1em;
+				cursor: pointer;
 
-        @include mq($from: desktop) {
-          &.selected {
-            &:before {
-              content: " ";
-              width: 0.3em;
-              height: 0.3em;
-              background-color: black;
-              position: absolute;
-              z-index: 1;
-              top: 2.5em;
-              margin-left: -0.8em;
-              transform: rotate(45deg);
+				@include mq($from: desktop) {
+					&.selected {
+						&:before {
+							content: ' ';
+							width: 0.3em;
+							height: 0.3em;
+							background-color: black;
+							position: absolute;
+							z-index: 1;
+							top: 2.5em;
+							margin-left: -0.8em;
+							transform: rotate(45deg);
 
-              @include mq($from: wide) {
-                top: 2.05em;
-              }
-            }
-          }
-        }
+							@include mq($from: wide) {
+								top: 2.05em;
+							}
+						}
+					}
+				}
 
-        @include mq($from: desktop) {
-          margin-left: 2em;
-        }
-      }
-    }
-  }
+				@include mq($from: desktop) {
+					margin-left: 2em;
+				}
+			}
+		}
+	}
 }
 
 .language {
-  display: flex;
-  flex-direction: row;
-  z-index: var(--z-language);
-  height: var(--navbar-height);
-  color: var(--gray);
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	z-index: var(--z-language);
+	height: var(--navbar-height);
+	color: var(--gray);
+	align-items: center;
 
-  span {
-    @include mq($until: desktop) {
-      padding-right: 1rem;
-      padding-left: 0rem;
-    }
+	span {
+		@include mq($until: desktop) {
+			padding-right: 1rem;
+			padding-left: 0rem;
+		}
 
-    padding-right: 2rem;
-    padding-left: 1rem;
-  }
+		padding-right: 2rem;
+		padding-left: 1rem;
+	}
 
-  a {
-    margin-right: 0.2em;
-    color: var(--gray);
+	a {
+		margin-right: 0.2em;
+		color: var(--gray);
 
-    &.active {
-      color: var(--black);
-    }
-  }
+		&.active {
+			color: var(--black);
+		}
+	}
 }
 
 .contact {
-  width: 100%;
-  background-color: var(--white);
-  color: var(--black);
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.2s ease-in-out;
-  //padding: var(--outer-margin);
+	width: 100%;
+	background-color: var(--white);
+	color: var(--black);
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height 0.2s ease-in-out;
+	//padding: var(--outer-margin);
 
-  h1,
-  .info {
-    padding: var(--outer-margin);
-  }
+	h1,
+	.info {
+		padding: var(--outer-margin);
+	}
 
-  h1 {
-    grid-column: span 5;
+	h1 {
+		grid-column: span 5;
 
-    @include mq($until: desktop) {
-      padding-top: 1em;
-      padding-bottom: 0.3em;
-    }
-  }
+		@include mq($until: desktop) {
+			padding-top: 1em;
+			padding-bottom: 0.3em;
+		}
+	}
 
-  .info {
-    grid-column: span 7;
+	.info {
+		grid-column: span 7;
 
-    @include mq($until: desktop) {
-      padding-bottom: 2rem;
-    }
+		@include mq($until: desktop) {
+			padding-bottom: 2rem;
+		}
 
-    .sellers {
-      list-style: none;
-      line-height: 1.25;
+		.sellers {
+			list-style: none;
+			line-height: 1.25;
 
-      @include mq($from: desktop) {
-        display: flex;
-        flex-direction: row;
-      }
+			@include mq($from: desktop) {
+				display: flex;
+				flex-direction: row;
+			}
 
-      li {
-        padding-right: 1rem;
-      }
-    }
-  }
+			li {
+				padding-right: 1rem;
+			}
+		}
+	}
 }
 
 .background {
-  position: fixed;
-  width: 100%;
-  height: var(--navbar-height);
-  z-index: -1;
-  top: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  transition: all 0.2s ease-in-out;
+	position: fixed;
+	width: 100%;
+	height: var(--navbar-height);
+	z-index: -1;
+	top: 0;
+	background-color: rgba(255, 255, 255, 0.9);
+	backdrop-filter: blur(10px);
+	transition: all 0.2s ease-in-out;
 }
 
 .invert {
-  color: var(--white);
-  backdrop-filter: blur(0px);
-  background-color: rgba(0, 0, 0, 0) !important;
-  //background-color: transparent;
+	color: var(--white);
+	backdrop-filter: blur(0px);
+	background-color: rgba(0, 0, 0, 0) !important;
+	//background-color: transparent;
 
-  .navbar.background {
-    opacity: 0;
-  }
+	.navbar.background {
+		opacity: 0;
+	}
 
-  a {
-    color: white;
-  }
+	a {
+		color: white;
+	}
 
-  li.selected:before {
-    background-color: white !important;
-  }
+	li.selected:before {
+		background-color: white !important;
+	}
 
-  img {
-    filter: invert(1);
-  }
+	img {
+		filter: invert(1);
+	}
 }

@@ -8,15 +8,18 @@ export default {
 		defaultLocale,
 	},
 	routes: {
-		start: async (record, locale) => [getPathname({ locale, href: '/' })],
-		about: async (record, locale) => [getPathname({ locale, href: '/about' })],
-		contact: async (record, locale) => [getPathname({ locale, href: '/' })],
-		offer: async (record, locale) => [getPathname({ locale, href: '/products' }), getPathname({ locale, href: '/' })],
-		offer_category: async (record, locale) => [
-			getPathname({ locale, href: '/products' }),
-			getPathname({ locale, href: '/' }),
+		start: async (record, locale) => [getPathname({ locale, href: '/', forcePrefix: true })],
+		about: async (record, locale) => [getPathname({ locale, href: '/about', forcePrefix: true })],
+		contact: async (record, locale) => [getPathname({ locale, href: '/', forcePrefix: true })],
+		offer: async (record, locale) => [
+			getPathname({ locale, href: '/products', forcePrefix: true }),
+			getPathname({ locale, href: '/', forcePrefix: true }),
 		],
-		offer_item: async (record, locale) => [getPathname({ locale, href: '/products' })],
+		offer_category: async (record, locale) => [
+			getPathname({ locale, href: '/products', forcePrefix: true }),
+			getPathname({ locale, href: '/', forcePrefix: true }),
+		],
+		offer_item: async (record, locale) => [getPathname({ locale, href: '/products', forcePrefix: true })],
 		upload: async ({ id }) => getUploadReferenceRoutes(id),
 	},
 	sitemap: async () => {
